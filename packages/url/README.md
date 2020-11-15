@@ -12,10 +12,16 @@ By default, `f_auto` (auto format per browser) and `q_auto` (auto quality per de
 import { buildUrl } from 'cloudinary-build-url'
 
 const src = buildUrl('example', {
-  cloudName: 'demo',
-  crop: 'scale',
-  width: 500,
-  height: 500,
+  cloud: {
+    cloudName: 'demo',
+  },
+  transformations: {
+    resize: {
+      type: 'scale',
+      width: 500,
+      height: 500,
+    }
+  }
 })
 
 console.log(src)
@@ -33,9 +39,13 @@ setConfig({
 
 // Build URL
 const src = buildUrl('example', {
-  crop: 'scale',
-  width: 500,
-  height: 500,
+  transformations: {
+    resize: {
+      type: 'scale',
+      width: 500,
+      height: 500,
+    }
+  }
 })
 
 console.log(src)
@@ -47,10 +57,16 @@ console.log(src)
 import { buildVideoUrl } from 'cloudinary-build-url'
 
 const src = buildVideoUrl('dog', {
-  cloudName: 'demo',
-  crop: 'scale',
-  width: 500,
-  height: 500,
+  cloud: {
+    cloudName: 'demo',
+  },
+  transformations: {
+    resize: {
+      type: 'scale',
+      width: 500,
+      height: 500,
+    }
+  }
 })
 
 console.log(src)
