@@ -1,5 +1,6 @@
 import { TRANSFORMERS } from '../constants'
 import { effect } from './effect'
+import { rawTransformation } from './rawTransformation'
 
 export type Transformation = Array<string | string[]>
 
@@ -39,7 +40,7 @@ export const getTransformations = (options):string[] => {
   }
 
   result.push(effect(options.effect))
-
+  result.push(rawTransformation(options.rawTransformation))
   return result.filter(Boolean)
 }
 

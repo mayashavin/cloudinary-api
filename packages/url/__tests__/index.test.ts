@@ -18,8 +18,12 @@ describe('General tests', () => {
       })
 
       expect(buildUrl('example', {
-        crop: 'scale',
-        width: 200
+        transformations: {
+          resize: {
+            type: 'scale',
+            width: 200
+          }         
+        }
       })).toEqual('https://res.cloudinary.com/m/image/upload/c_scale,w_200,q_auto,f_auto/example') 
     });
 
@@ -29,9 +33,15 @@ describe('General tests', () => {
       })
 
       expect(buildUrl('example', {
-        crop: 'scale',
-        width: 200,
-        cloudName: 'demo'
+        transformations: {
+          resize: {
+            type: 'scale',
+            width: 200
+          }         
+        },
+        cloud: {
+          cloudName: 'demo'
+        }
       })).toEqual('https://res.cloudinary.com/demo/image/upload/c_scale,w_200,q_auto,f_auto/example') 
 
       expect(getConfig()).toEqual({
@@ -41,9 +51,15 @@ describe('General tests', () => {
 
     it('should return right url format for video', () => {
       expect(buildVideoUrl('example', {
-        crop: 'scale',
-        width: 200,
-        cloudName: 'demo'
+        transformations: {
+          resize: {
+            type: 'scale',
+            width: 200
+          }         
+        },
+        cloud: {
+          cloudName: 'demo'
+        }
       })).toEqual('https://res.cloudinary.com/demo/video/upload/c_scale,w_200,q_auto,f_auto/example') 
 
     })

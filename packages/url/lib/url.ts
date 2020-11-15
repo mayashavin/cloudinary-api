@@ -1,5 +1,7 @@
 import { RESOURCE_TYPES, SEO_TYPES, STORAGE_TYPES } from "./constants"
-import { CldOptions } from './types/CldOptions'
+import { CloudConfig, TransformerOption, TransformerVideoOption } from './types/CldOptions'
+import { ResourceType } from "./types/ResourceType"
+import { StorageType } from "./types/StorageType"
 
 const SHARED_CDNS:string[] = ["cloudinary-a.akamaihd.net", "res.cloudinary.com"]
 
@@ -47,14 +49,7 @@ export const getPrefix = (publicId: string, {
   secureDistribution, 
   cname, 
   secure = true, 
-}: { 
-  cloudName: string, 
-  privateCdn?: boolean, 
-  cdnSubdomain?: boolean, 
-  secureDistribution?: string, 
-  cname?: string, 
-  secure?: boolean, 
-}):string => {
+}: CloudConfig):string => {
   const hasSecureDistribution = secure && secureDistribution && !SHARED_CDNS.includes(secureDistribution)
   const protocol = `http${secure ? 's' : ''}://`
   const cdn = privateCdn && !hasSecureDistribution ? `${cloudName}-` : ''
@@ -67,21 +62,21 @@ export const getPrefix = (publicId: string, {
 
 export const getResourceType = ({
   resourceType = RESOURCE_TYPES.IMAGE,
-  type = STORAGE_TYPES.UPLOAD,
+  storageType = STORAGE_TYPES.UPLOAD,
   urlSuffix,
   useRootPath,
   shortern
 }: {
-  resourceType?: string,
-  type?: string,
+  resourceType?: ResourceType,
+  storageType?: StorageType,
   urlSuffix?: string,
   useRootPath?: boolean,
   shortern?: boolean
 }):string => {
-  const isUploadImage = resourceType === RESOURCE_TYPES.IMAGE && type === STORAGE_TYPES.UPLOAD
+  const isUploadImage = resourceType === RESOURCE_TYPES.IMAGE && storageType === STORAGE_TYPES.UPLOAD
   const useRootForNonUploadedImages = useRootPath && !isUploadImage
   const shortenForUploadedImages = shortern && isUploadImage
-  const typePath = `${resourceType}/${type}`
+  const typePath = `${resourceType}/${storageType}`
 
   if (useRootForNonUploadedImages) { throw new Error("Root path only supported for image/upload") }
 
@@ -119,8 +114,8 @@ export const getPathToAsset = (publicId: string, { urlSuffix = '', format = '' }
   return encodePublicId(path)
 }
 
-export const url = (publicId: string, options: CldOptions):string => {
-  if (!options.cloudName) {
+export const url = (publicId: string, cloud: CloudConfig = { cloudName: ''}, options?: TransformerOption | TransformerVideoOption ):string => {
+  if (!cloud.cloudName) {
     throw Error('cloudName is required!')
   }
 
@@ -128,23 +123,23 @@ export const url = (publicId: string, options: CldOptions):string => {
   const _publicId = isUrl(publicId) ? extractPublicId(publicId) : publicId
   
   //1. Get version
-  const version:string = getVersion(_publicId, options)
+  const version:string = getVersion(_publicId, cloud)
   //2. Get Prefix
-  const prefix:string = getPrefix(_publicId, options)
+  const prefix:string = getPrefix(_publicId, cloud)
   //3. Get Signature
-  const signature:string = getSignature(options.signature)
+  const signature:string = getSignature(cloud.signature)
   //4. Get Resource type
-  const typePath:string = getResourceType(options)
+  const typePath:string = getResourceType(cloud)
   //5. Get path
-  const pathToAsset:string = getPathToAsset(_publicId, options)
+  const pathToAsset:string = getPathToAsset(_publicId, { format: options.format, urlSuffix: cloud.urlSuffix })
   //6. Encode everything with %20 for whitespace
 
-  const fetchFormat = options.fetchFormat || (isFetchRemote(options.type) ? options.format : 'auto') || 'auto'
+  const format = options.fetchFormat || options.format || 'auto'
 
   const $options = {
     quality: 'auto',
     ...options,
-    fetchFormat
+    format
   }
 
   //build the transformations

@@ -1,25 +1,3 @@
-export const URL_KEYS = [
-  'api_secret',
-  'auth_token',
-  'cdn_subdomain',
-  'cloud_name',
-  'cname',
-  'format',
-  'private_cdn',
-  'resource_type',
-  'secure',
-  'secure_cdn_subdomain',
-  'secure_distribution',
-  'shorten',
-  'sign_url',
-  'signature',
-  'ssl_detected',
-  'type',
-  'url_suffix',
-  'use_root_path',
-  'version'
-];
-
 export const SEO_TYPES = {
   "image/upload": "images",
   "image/private": "private_images",
@@ -103,13 +81,11 @@ export const TRANSFORMERS = {
   density: 'dn',
   duration: 'du',
   dpr: 'dpr',
-  // effect: 'e',
   // else: '',
   // endIf: '',
   endOffset: 'eo',
   // fallbackContent: '', //to pay attention
-  fetchFormat: 'f',
-  // format: '',// to pay attention
+  format: 'f',
   // flags: 'fl',
   gravity: 'g',
   // fps: 'fps',
@@ -144,31 +120,3 @@ export const TRANSFORMERS = {
   y: 'y',
   zoom: 'z'
 }
-
-const CONFIG_PARAMS = [
-  "api_key",
-  "api_secret",
-  "callback",
-  "cdn_subdomain",
-  "cloud_name",
-  "cname",
-  "private_cdn",
-  "protocol",
-  "resource_type",
-  "responsive",
-  "responsive_class",
-  "responsive_use_breakpoints",
-  "responsive_width",
-  "round_dpr",
-  "secure",
-  "secure_cdn_subdomain",
-  "secure_distribution",
-  "shorten",
-  "type",
-  "upload_preset",
-  "url_suffix",
-  "use_root_path",
-  "version",
-  "externalLibraries",
-  "max_timeout_ms"
-];

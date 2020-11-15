@@ -1,3 +1,8 @@
+export interface Offset {
+  start?: string,
+  end?: string,
+}
+
 export const offset = () => {
   // var end_o, start_o;
   //   [start_o, end_o] = (isFunction(value != null ? value.split : void 0)) ? value.split('..') : isArray(value) ? value : [null, null];

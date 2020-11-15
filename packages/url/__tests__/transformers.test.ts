@@ -72,7 +72,7 @@ describe('Modifiers', () => {
         bitRate: 12,
         cloudName: 'demo',
         customFunction: 'func',
-        fetchFormat: 'auto',
+        format: 'auto',
         fallbackContent: '<div>hello</div>',
       }
 

@@ -1,0 +1,1 @@
+export const rawTransformation = (value:string):string => value

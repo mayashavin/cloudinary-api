@@ -1,29 +1,38 @@
-import { RESOURCE_TYPES } from './constants'
-import { CldOptions } from './types/CldOptions'
+import { RESOURCE_TYPES, STORAGE_TYPES } from './constants'
+import { CldOptions, CloudConfig } from './types/CldOptions'
 import { url, extractPublicId } from './url'
 
 let config = {}
 
 export const getConfig = () => Object.freeze(config)
 
-export const setConfig = (options:CldOptions) => config = {
+export const setConfig = (options:CloudConfig) => config = {
   ...config,
   ...options
 } 
 
-export const buildUrl =  (pubicId: string, options:CldOptions):string => url(pubicId, {
-  ...config,
-  ...options,
+export const buildUrl =  (pubicId: string, { cloud = {}, transformations = {} }: CldOptions):string => {
+  const cloudConfig = {
+    ...config,
+    ...cloud
+  }
+  return url(pubicId, cloudConfig, transformations)
+}
+
+export const buildImageUrl = (pubicId: string, { cloud = {}, transformations = {} }: CldOptions):string => buildUrl(pubicId, {
+  cloud: {
+    ...cloud,
+    resourceType: RESOURCE_TYPES.IMAGE
+  },
+  transformations
 })
 
-export const buildImageUrl = (pubicId: string, options: CldOptions):string => buildUrl(pubicId, {
-  ...options,
-  resourceType: RESOURCE_TYPES.IMAGE
+export const buildVideoUrl = (pubicId: string,  { cloud = {}, transformations = {} }: CldOptions):string => buildUrl(pubicId, {
+  cloud: {
+    ...cloud,
+    resourceType: RESOURCE_TYPES.VIDEO
+  },
+  transformations
 })
 
-export const buildVideoUrl = (pubicId: string, options: CldOptions):string => buildUrl(pubicId, {
-  ...options,
-  resourceType: RESOURCE_TYPES.VIDEO
-})
-
-export { RESOURCE_TYPES, extractPublicId }
+export { RESOURCE_TYPES, extractPublicId, STORAGE_TYPES }
