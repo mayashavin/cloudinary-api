@@ -1,5 +1,5 @@
 import { RESOURCE_TYPES } from './constants'
-import { url } from './url'
+import { url, extractPublicId } from './url'
 
 let config = {}
 
@@ -25,4 +25,4 @@ export const buildVideoUrl = (pubicId: string, options) => buildUrl(pubicId, {
   resourceType: RESOURCE_TYPES.VIDEO
 })
 
-export { RESOURCE_TYPES }
+export { RESOURCE_TYPES, extractPublicId }
