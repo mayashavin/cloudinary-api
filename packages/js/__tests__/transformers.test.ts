@@ -1,9 +1,9 @@
-import { modify, getBorder, getModifications, getResize, toModifcationString } from '../lib/modifiers'
-import { resize } from '../lib/modifiers/resize'
-import { border } from '../lib/modifiers/border'
+import { transform, getBorder, getTransformations, getResize, toTransformationStr } from '../lib/transformers'
+import { resize } from '../lib/transformers/resize'
+import { border } from '../lib/transformers/border'
 
 describe('Modifiers', () => {
-  describe('modify()', () => {
+  describe('transform()', () => {
     it('returns valid mapping', () => {
       const options = {
         width: 500,
@@ -12,7 +12,7 @@ describe('Modifiers', () => {
         crop: 'scale'
       }
 
-      expect(modify(options)).toEqual([
+      expect(transform(options)).toEqual([
         'c_scale,w_500,h_500',
         'ar_16:9',
       ])
@@ -37,7 +37,7 @@ describe('Modifiers', () => {
         }]
       }
 
-      expect(modify(options)).toEqual([
+      expect(transform(options)).toEqual([
         'c_scale,w_500,h_500',
         'ar_16:9',
         ['br_12','e_grayscale'],
@@ -66,7 +66,7 @@ describe('Modifiers', () => {
     })
   })
 
-  describe('getModifications()', () => {
+  describe('getTransformations()', () => {
     it('only return the valid fields', () => {
       const options = {
         bitRate: 12,
@@ -76,7 +76,7 @@ describe('Modifiers', () => {
         fallbackContent: '<div>hello</div>',
       }
 
-      expect(getModifications(options)).toEqual([
+      expect(getTransformations(options)).toEqual([
         'br_12',
         'fn_func',
         'f_auto'
@@ -125,7 +125,7 @@ describe('Modifiers', () => {
     })
   })  
 
-  describe('toModifcationString()', () => {
+  describe('toTransformationStr()', () => {
     it('returns modifications with chained', () => {
       const options = {
         width: 500,
@@ -145,7 +145,7 @@ describe('Modifiers', () => {
         }]
       }
 
-      expect(toModifcationString(modify(options))).toEqual(
+      expect(toTransformationStr(transform(options))).toEqual(
         'c_scale,w_500,h_500,ar_16:9/br_12,e_grayscale/bo_1px_dashed_#fff,e_pixelate'
       )
     })

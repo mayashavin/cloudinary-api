@@ -84,7 +84,7 @@ export const DEFAULT_VIDEO_SOURCE_TYPES = {
   OGV: 'ogv'
 };
 
-export const MODIFIERS = {
+export const TRANSFORMERS = {
   angle: 'a',
   rotate: 'a',
   audioCodec: 'ac',

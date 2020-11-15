@@ -122,7 +122,7 @@ export const url = (publicId: string, options):string => {
   if (!options.cloudName) {
     throw Error('cloudName is required!')
   }
-  
+
   //If publicId is cloudinary url, strip to get the publicId and version.
   const _publicId = isUrl(publicId) ? extractPublicId(publicId) : publicId
   
@@ -147,9 +147,9 @@ export const url = (publicId: string, options):string => {
   }
 
   //build the transformations
-  const { toModifcationString, modify } = require('./modifiers')
+  const { toTransformationStr, transform } = require('./transformers')
 
-  const trans:string = toModifcationString(modify($options))
+  const trans:string = toTransformationStr(transform($options))
 
   return [prefix, typePath, signature, trans, version, pathToAsset].filter(Boolean).join('/').replace(' ', '%20')
 }
