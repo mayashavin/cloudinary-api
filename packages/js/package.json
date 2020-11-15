@@ -1,6 +1,6 @@
 {
   "name": "cloudinary-url",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Lighter Url generator for Cloudinary",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "homepage": "",
