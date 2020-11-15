@@ -10,5 +10,16 @@
   },
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "version": "independent"
+  "version": "independent",
+  "changelog": {
+    "repo": "cld-apis",
+    "labels": {
+      "PR: New Feature": ":rocket: New Features",
+      "PR: Breaking Change": ":boom: Breaking Changes",
+      "PR: Bug Fix": ":bug: Bug Fix",
+      "PR: Documentation": ":memo: Documentation",
+      "PR: Internal": ":house: Internal",
+      "PR: Underlying Tools": ":hammer: Underlying Tools"
+    }
+  }
 }
