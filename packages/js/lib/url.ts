@@ -2,6 +2,17 @@ import { RESOURCE_TYPES, SEO_TYPES, STORAGE_TYPES } from "./constants"
 
 const SHARED_CDNS:string[] = ["cloudinary-a.akamaihd.net", "res.cloudinary.com"]
 
+//eslint-disable-next-line
+const CLOUDINARY_REGEX = /^.+\.cloudinary\.com\/(?:[^\/]+\/)(?:(image|video|raw)\/)?(?:(upload|fetch|private|authenticated|sprite|facebook|twitter|youtube|vimeo)\/)?(?:(?:[^_/]+_[^,/]+,?)*\/)?(?:v(\d+|\w{1,2})\/)?([^\.^\s]+)(?:\.(.+))?$/
+
+export const extractPublicId = (link: string):string => {
+  if (!link) return ''
+
+  const parts = CLOUDINARY_REGEX.exec(link)
+
+  return parts && parts.length > 2 ? parts[parts.length - 2] : link
+} 
+
 export const getSignature = (signature?: string) => {
   if (!signature) return ''
 
@@ -35,7 +46,6 @@ export const getPrefix = (publicId: string, {
   secureDistribution, 
   cname, 
   secure = true, 
-  // secureCdnSubdomain = false
 }: { 
   cloudName: string, 
   privateCdn?: boolean, 
@@ -43,7 +53,6 @@ export const getPrefix = (publicId: string, {
   secureDistribution?: string, 
   cname?: string, 
   secure?: boolean, 
-  // secureCdnSubdomain?: boolean
 }):string => {
   const hasSecureDistribution = secure && secureDistribution && !SHARED_CDNS.includes(secureDistribution)
   const protocol = `http${secure ? 's' : ''}://`
@@ -110,20 +119,23 @@ export const getPathToAsset = (publicId: string, { urlSuffix = '', format = '' }
 }
 
 export const url = (publicId: string, options):string => {
-  //TODO: If publicId is cloudinary url, strip to get the publicId and version.
-
-  //shake all the configurations
+  if (!options.cloudName) {
+    throw Error('cloudName is required!')
+  }
+  
+  //If publicId is cloudinary url, strip to get the publicId and version.
+  const _publicId = isUrl(publicId) ? extractPublicId(publicId) : publicId
   
   //1. Get version
-  const version:string = getVersion(publicId, options)
+  const version:string = getVersion(_publicId, options)
   //2. Get Prefix
-  const prefix:string = getPrefix(publicId, options)
+  const prefix:string = getPrefix(_publicId, options)
   //3. Get Signature
   const signature:string = getSignature(options.signature)
   //4. Get Resource type
   const typePath:string = getResourceType(options)
   //5. Get path
-  const pathToAsset:string = getPathToAsset(publicId, options)
+  const pathToAsset:string = getPathToAsset(_publicId, options)
   //6. Encode everything with %20 for whitespace
 
   const fetchFormat = options.fetchFormat || (isFetchRemote(options.type) ? options.format : 'auto') || 'auto'

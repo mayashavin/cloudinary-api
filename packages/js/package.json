@@ -1,6 +1,6 @@
 {
-  "name": "cloudinary-url",
-  "version": "0.0.4",
+  "name": "cloudinary-build-url",
+  "version": "0.0.1",
   "description": "Lighter Url generator for Cloudinary",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "homepage": "",
@@ -30,5 +30,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "dcef68eee9274fe77f860b2f7e7165fde41f8bb6"
 }

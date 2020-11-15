@@ -1,4 +1,4 @@
-import { url, getPrefix, getPathToAsset, getVersion, getSignature } from '../lib/url'
+import { url, getPrefix, getPathToAsset, getVersion, getSignature, extractPublicId } from '../lib/url'
 
 describe('Url', () => {
   describe('getPrefix()', () => {
@@ -152,6 +152,32 @@ describe('Url', () => {
         type: 'fetch',
         format: 'png'
       })).toBe('https://res.cloudinary.com/demo/image/fetch/c_scale,w_500,h_500,q_auto,ar_16:9,f_png/example')
+    })
+  })
+
+  describe("extractPublicId()", () => {
+    it('should return the publicid', () => {
+      expect(extractPublicId('https://res.cloudinary.com/mayashavin/image/upload/v1604399524/kitten_2.jpg')).toEqual('kitten_2')
+    });
+
+    it('should return full path public id', () => {
+      expect(extractPublicId("https://res.cloudinary.com/mayashavin/image/upload/v1597869375/articles/lighthouse.png")).toEqual('articles/lighthouse')
+    })
+
+    it('should return full path public id', () => {
+      expect(extractPublicId("https://res.cloudinary.com/mayashavin/image/upload/v1597869375/articles/lighthouse")).toEqual('articles/lighthouse')
+    })
+
+    it('should return empty string', () => {
+      expect(extractPublicId('')).toEqual('')
+    })
+
+    it('should return as is', () => {
+      expect(extractPublicId('https://example.com')).toEqual('https://example.com')
+    })
+
+    it('should return as is', () => {
+      expect(extractPublicId('example')).toEqual('example')
     })
   })
 })
