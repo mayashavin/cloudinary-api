@@ -33,7 +33,7 @@ export const getModifications = (options):string[] => {
     const value = options[modifier]
     const mapping = MODIFIERS[modifier]
 
-    if (!mapping) continue
+    if (!mapping || !value) continue
 
     result.push(`${mapping}_${value}`)
   }
@@ -57,7 +57,14 @@ export const modify = (options):Modification => {
     })
   }
 
-  return modifications
+  return modifications.filter(Boolean)
 }
+
+export const toModifcationString = (modifications: Modification) => modifications.reduce((str: string, modification: string | string[]):string => {
+    const isChained = Array.isArray(modification)
+    const separation = isChained ? '/' : ','
+
+    return `${str}${str ? separation : ''}${modification.toString()}`
+  }, '')
 
 export default modify

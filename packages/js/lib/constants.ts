@@ -1,12 +1,10 @@
 export const URL_KEYS = [
-  'accessibility',
   'api_secret',
   'auth_token',
   'cdn_subdomain',
   'cloud_name',
   'cname',
   'format',
-  'placeholder',
   'private_cdn',
   'resource_type',
   'secure',
@@ -21,6 +19,14 @@ export const URL_KEYS = [
   'use_root_path',
   'version'
 ];
+
+export const SEO_TYPES = {
+  "image/upload": "images",
+  "image/private": "private_images",
+  "image/authenticated": "authenticated_images",
+  "raw/upload": "files",
+  "video/upload": "videos"
+};
 
 export const IMAGE_CONDITIONAL_OPERATORS = {
   equal: "eq",

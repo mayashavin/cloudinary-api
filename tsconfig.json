@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./packages",
     "paths": {
-      "@cld-api/js": ["js/lib"]
+      "@cld-api/js": ["cloudinary-url"],
     }
   }
 }

@@ -1,4 +1,4 @@
-import { modify, getBorder, getModifications, getResize } from '../lib/modifiers'
+import { modify, getBorder, getModifications, getResize, toModifcationString } from '../lib/modifiers'
 import { resize } from '../lib/modifiers/resize'
 import { border } from '../lib/modifiers/border'
 
@@ -124,6 +124,32 @@ describe('Modifiers', () => {
       expect(getResize(options)).toEqual('c_scale,w_20,h_20')
     })
   })  
+
+  describe('toModifcationString()', () => {
+    it('returns modifications with chained', () => {
+      const options = {
+        width: 500,
+        height: 500,
+        aspectRatio: '16:9',
+        crop: 'scale',
+        chaining: [{
+          bitRate: 12,
+          effect: 'grayscale'
+        }, {
+          effect: 'pixelate',
+          border: {
+            width: 1,
+            type: 'dashed',
+            color: '#fff'
+          }
+        }]
+      }
+
+      expect(toModifcationString(modify(options))).toEqual(
+        'c_scale,w_500,h_500,ar_16:9/br_12,e_grayscale/bo_1px_dashed_#fff,e_pixelate'
+      )
+    })
+  })
 })
 
 describe('resize()', () => {

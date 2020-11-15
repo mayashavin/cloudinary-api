@@ -1,10 +1,28 @@
-export const buildImageUrl = () => {}
+import { RESOURCE_TYPES } from './constants'
+import { url } from './url'
 
-export const buildVideoUrl = () => {}
+let config = {}
 
-export const buildUrl = (options) => {
-  //shake all the configurations
+export const getConfig = () => Object.freeze(config)
 
-  const modifier = require('')
-  const modifications = 
-}
+export const setConfig = (options) => config = {
+  ...config,
+  ...options
+} 
+
+export const buildUrl =  (pubicId: string, options) => url(pubicId, {
+  ...config,
+  ...options,
+})
+
+export const buildImageUrl = (pubicId: string, options) => buildUrl(pubicId, {
+  ...options,
+  resourceType: RESOURCE_TYPES.IMAGE
+})
+
+export const buildVideoUrl = (pubicId: string, options) => buildUrl(pubicId, {
+  ...options,
+  resourceType: RESOURCE_TYPES.VIDEO
+})
+
+export { RESOURCE_TYPES }
