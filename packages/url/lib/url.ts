@@ -1,4 +1,5 @@
 import { RESOURCE_TYPES, SEO_TYPES, STORAGE_TYPES } from "./constants"
+import { CldOptions } from './types/CldOptions'
 
 const SHARED_CDNS:string[] = ["cloudinary-a.akamaihd.net", "res.cloudinary.com"]
 
@@ -118,7 +119,7 @@ export const getPathToAsset = (publicId: string, { urlSuffix = '', format = '' }
   return encodePublicId(path)
 }
 
-export const url = (publicId: string, options):string => {
+export const url = (publicId: string, options: CldOptions):string => {
   if (!options.cloudName) {
     throw Error('cloudName is required!')
   }

@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://github.com/mayashavin/cloudinary-api/issues"
   },
-  "homepage": "https://github.com/mayashavin/cloudinary-api/packages/js#readme",
+  "homepage": "https://github.com/mayashavin/cloudinary-api/packages/url#readme",
   "publishConfig": {
     "access": "public"
   },

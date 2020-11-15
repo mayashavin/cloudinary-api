@@ -92,10 +92,10 @@ export const TRANSFORMERS = {
   aspectRatio: 'ar',
   background: 'b',
   bitRate: 'br',
-  // border: 'bo',
+  // border: 'bo', // Border: { width:, height:, type:, color: }
   color: 'co',
   colorSpace: 'cs',
-  // crop: 'c',
+  // crop: 'c', //resize: { width, height: , type}
   customFunction: 'fn',
   // customPreFunction: 'fn_pre:', //make sure it won't duplicate _
   defaultImage: 'd',

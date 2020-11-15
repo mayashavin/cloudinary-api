@@ -27,7 +27,7 @@
     ["jest-html-reporters", {
       "publicPath" : "./public/progress/",
       "filename": "api-report.html",
-      "pageTitle": "@cld-api/js Report",
+      "pageTitle": "cloudinary-build-url Report",
       "expand": true
     }]
   ]
