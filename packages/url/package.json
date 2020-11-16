@@ -1,6 +1,6 @@
 {
   "name": "cloudinary-build-url",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Lighter Url generator for Cloudinary",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "license": "MIT",
