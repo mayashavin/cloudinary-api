@@ -7,6 +7,7 @@
 Build URL for images and videos based on configurations.
 
 [📖 Documentation](https://cloudinary-build-url.netlify.app)
+
 [💻 Code](https://github.com/mayashavin/cloudinary-api/tree/main/packages/url)
 
 ```
