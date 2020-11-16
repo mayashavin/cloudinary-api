@@ -67,7 +67,7 @@ export const TRANSFORMERS = {
   rotate: 'a',
   audioCodec: 'ac',
   audioFrequency: 'af',
-  aspectRatio: 'ar',
+  // aspectRatio: 'ar',
   background: 'b',
   bitRate: 'br',
   // border: 'bo', // Border: { width:, height:, type:, color: }
@@ -83,8 +83,8 @@ export const TRANSFORMERS = {
   dpr: 'dpr',
   // else: '',
   // endIf: '',
-  endOffset: 'eo',
-  // fallbackContent: '', //to pay attention
+  endOffset: 'eo', //to remove
+  // fallbackContent: '',
   format: 'f',
   // flags: 'fl',
   gravity: 'g',
@@ -109,7 +109,7 @@ export const TRANSFORMERS = {
   // sourceTransformation,
   startOffset: 'so',
   streamingProfile: 'sp',
-  // transformation: 't',
+  transformation: 't',
   underlay: 'u',
   // variable,
   // variables,

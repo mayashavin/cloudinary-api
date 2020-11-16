@@ -3,13 +3,15 @@ export type ResizeType = 'imaggaScale' | 'imaggaCrop' | 'crop' | 'fill' | 'scale
 export interface Resize {
   type?: ResizeType, 
   width?: number | string, 
-  height?: number | string
+  height?: number | string,
+  aspectRatio?: string,
 }
 
-export const resize = ({ type, width, height }: Resize) => {
+export const resize = ({ type, width, height, aspectRatio }: Resize) => {
   const w = width ? `w_${width}` : ''
   const h = height ? `h_${height}` : ''
   const crop = type ? `c_${type}` : ''
+  const ar = aspectRatio ? `ar_${aspectRatio}` : ''
 
-  return [ crop, w, h ].filter(Boolean).join()
+  return [ crop, w, h, ar ].filter(Boolean).join()
 }

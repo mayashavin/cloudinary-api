@@ -18,7 +18,6 @@
     "pretest:ci": "yarn pretest",
     "test:ci": "lerna run test:ci --stream",
     "prettier": "yarn prettier --write .",
-    "build:demo": "npm --prefix packages/demo run build",
     "changelog": "node scripts/changelog.js"
   },
   "author": "Maya Shavin <dpnminh@gmail.com>",

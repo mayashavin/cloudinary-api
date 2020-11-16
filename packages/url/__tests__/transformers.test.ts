@@ -13,8 +13,7 @@ describe('Modifiers', () => {
       }
 
       expect(transform(options)).toEqual([
-        'c_scale,w_500,h_500',
-        'ar_16:9',
+        'c_scale,w_500,h_500,ar_16:9',
       ])
     })
 
@@ -38,8 +37,7 @@ describe('Modifiers', () => {
       }
 
       expect(transform(options)).toEqual([
-        'c_scale,w_500,h_500',
-        'ar_16:9',
+        'c_scale,w_500,h_500,ar_16:9',
         ['br_12','e_grayscale'],
         ['bo_1px_dashed_#fff', 'e_pixelate']
       ])

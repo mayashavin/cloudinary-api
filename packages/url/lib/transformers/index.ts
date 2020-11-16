@@ -5,13 +5,13 @@ import { rawTransformation } from './rawTransformation'
 export type Transformation = Array<string | string[]>
 
 export const getResize = (options):string => {
-  const hasResize = options.resize || options.width || options.height
+  const hasResize = options.resize || options.width || options.height || options.aspectRatio
 
   if (!hasResize) return ''
 
   const { resize } = require('./resize')
     
-  return resize(options.resize || { width: options.width, height: options.height, type: options.crop })
+  return resize(options.resize || { width: options.width, height: options.height, type: options.crop, aspectRatio: options.aspectRatio })
 }
 
 export const getBorder = (options):string => {

@@ -127,10 +127,10 @@ describe('Url', () => {
         resize: {
           width: 500,
           type: 'scale',
+          aspectRatio: '16:9',
           height: 500,
         },
-        aspectRatio: '16:9',
-      })).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_500,h_500,q_auto,ar_16:9,f_auto/v1/example')
+      })).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_500,h_500,ar_16:9,q_auto,f_auto/v1/example')
     })
 
     it('should return fetch delivery url', () => {
@@ -143,9 +143,9 @@ describe('Url', () => {
           width: 500,
           type: 'scale',
           height: 500,
+          aspectRatio: '16:9',
         },
-        aspectRatio: '16:9',
-    })).toBe('https://res.cloudinary.com/demo/image/fetch/c_scale,w_500,h_500,q_auto,ar_16:9,f_auto/v1/example')
+    })).toBe('https://res.cloudinary.com/demo/image/fetch/c_scale,w_500,h_500,ar_16:9,q_auto,f_auto/v1/example')
     })
 
     it('should return fetch deliver url with target format', () => {
@@ -157,10 +157,10 @@ describe('Url', () => {
           width: 500,
           type: 'scale',
           height: 500,
+          aspectRatio: '16:9',
         },
-        aspectRatio: '16:9',    
         format: 'png'
-      })).toBe('https://res.cloudinary.com/demo/image/fetch/c_scale,w_500,h_500,q_auto,ar_16:9,f_png/example')
+      })).toBe('https://res.cloudinary.com/demo/image/fetch/c_scale,w_500,h_500,ar_16:9,q_auto,f_png/example')
     })
 
     it('should return fetch deliver url with chained transformations', () => {
@@ -171,12 +171,12 @@ describe('Url', () => {
           width: 500,
           type: 'scale',
           height: 500,
+          aspectRatio: '16:9',
         },
-        aspectRatio: '16:9',
         chaining: [{
           effect: 'grayscale'
         }]
-      })).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_500,h_500,q_auto,ar_16:9,f_auto/e_grayscale/example')
+      })).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_500,h_500,ar_16:9,q_auto,f_auto/e_grayscale/example')
     })
   })
 
