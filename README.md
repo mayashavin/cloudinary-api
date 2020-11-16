@@ -6,7 +6,8 @@
 
 Build URL for images and videos based on configurations.
 
-[Documentation](https://github.com/mayashavin/cloudinary-api/tree/main/packages/url)
+[📖 Documentation](https://cloudinary-build-url.netlify.app)
+[💻 Code](https://github.com/mayashavin/cloudinary-api/tree/main/packages/url)
 
 ```
 import { buildUrl } from 'cloudinary-build-url'
@@ -20,6 +21,7 @@ const src = buildUrl('example', {
       type: 'scale',
       width: 500,
       height: 500,
+      aspectRatio: "16:9"
     }
   }
 })
