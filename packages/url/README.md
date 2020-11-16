@@ -1,5 +1,7 @@
 # `cloudinary-build-url`
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c64e43df-e77d-44fb-a0e0-5ca79f8ef188/deploy-status)](https://app.netlify.com/sites/cloudinary-build-url/deploys)
+
 ![Cloudinary URL Builder](https://res.cloudinary.com/mayashavin/image/upload/v1605534519/logos/logo-light.png)
 
 > The lighter URL builder API for Cloudinary with all features in TypeScript.
