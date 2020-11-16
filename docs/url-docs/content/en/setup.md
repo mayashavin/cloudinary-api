@@ -38,9 +38,9 @@ setConfig({
 })
 ```
 
-See [Options]() section for all available options to initialize Cloudinary builder. 
+See [Options](/options) section for all available options to initialize Cloudinary builder. 
 
 And that's it 🎉!
 
-Now you can start [building optimized delivery urls]() for your images and videos with Cloudinary.
+Now you can start [building optimized delivery urls](/usage/buildUrl) for your images and videos with Cloudinary.
 

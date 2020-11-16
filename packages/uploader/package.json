@@ -1,0 +1,43 @@
+{
+  "name": "cloudinary-media-uploader",
+  "version": "0.0.0",
+  "description": "Uploader for Cloudinary images and videos",
+  "keywords": [
+    "upload",
+    "uploader",
+    "cloudinary",
+    "images",
+    "videos",
+    "image",
+    "optimization",
+    "video",
+    "cloudinary-plugins",
+    "node",
+    "javascript"
+  ],
+  "author": "Maya Shavin <maya@cloudinary.com>",
+  "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/uploader#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/mayashavin/cloudinary-api/issues"
+  },
+  "dependencies": {
+    "@types/jest": "^26.0.15"
+  }
+}

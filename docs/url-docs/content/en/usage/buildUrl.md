@@ -69,7 +69,7 @@ const url = buildImageUrl('example', {
 
 To fetch a remote image using Cloudinary, you can set `cloud.storageType` to `fetch`.
 
-See [Fetch Remote example]() for more details.
+See [Fetch Remote example](/examples/advanced#display-a-remote-image-via-cloudinary) for more details.
 
 </alert>
 
