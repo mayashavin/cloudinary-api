@@ -6,6 +6,14 @@ export const SEO_TYPES = {
   "video/upload": "videos"
 };
 
+export const ROTATION_MODES = {
+  AUTO_RIGHT: 'auto_right',
+  AUTO_LEFT: 'auto_left',
+  VERTICAL_FLIP: 'vflip',
+  HORIZONTAL_FLIP: 'hflip',
+  IGNORE_EXIF_DATA: 'ignore'
+}
+
 export const IMAGE_CONDITIONAL_OPERATORS = {
   equal: "eq",
   notEqual: "ne",
@@ -116,7 +124,7 @@ export const TRANSFORMERS = {
   videoCodec: 'vc',
   videoSampling: 'vs',
   // width: 'w',
-  x: 'x',
-  y: 'y',
+  // x: 'x',
+  // y: 'y',
   zoom: 'z'
 }

@@ -1,6 +1,8 @@
-import { transform, getBorder, getTransformations, getResize, toTransformationStr } from '../lib/transformers'
+import { transform, getBorder, getTransformations, getResize, toTransformationStr, getPosition } from '../lib/transformers'
 import { resize } from '../lib/transformers/resize'
 import { border } from '../lib/transformers/border'
+import { position } from '../lib/transformers/position'
+import { effect } from '../lib/transformers/effect'
 
 describe('Modifiers', () => {
   describe('transform()', () => {
@@ -112,14 +114,15 @@ describe('Modifiers', () => {
       expect(getResize(options)).toEqual('h_20')
     })
 
-    it('should support width, height and crop field', () => {
+    it('should support width, height, aspectRatio and crop field', () => {
       const options = {
         height: 20,
         width: 20,
-        crop: 'scale'
+        crop: 'scale',
+        aspectRatio: '1:1'
       }
 
-      expect(getResize(options)).toEqual('c_scale,w_20,h_20')
+      expect(getResize(options)).toEqual('c_scale,w_20,h_20,ar_1:1')
     })
   })  
 
@@ -146,6 +149,31 @@ describe('Modifiers', () => {
       expect(toTransformationStr(transform(options))).toEqual(
         'c_scale,w_500,h_500,ar_16:9/br_12,e_grayscale/bo_1px_dashed_#fff,e_pixelate'
       )
+    })
+  })
+
+  describe('getPosition()', () => {
+    it('should prioritize position field', () => {
+      const options = {
+        position: {
+          x: 10,
+          y: 10,
+        },
+        x: 20,
+        y: 20
+      }
+
+      expect(getPosition(options)).toEqual('x_10,y_10')
+    })
+
+    it('should take x field', () => {
+      expect(getPosition({
+        x: 10
+      })).toBe('x_10')
+    })
+
+    it('should take y field', () => {
+      expect(getPosition({ y: 10 })).toBe('y_10')
     })
   })
 })
@@ -175,5 +203,37 @@ describe('border', () => {
 
   it('should return options', () => {
     expect(border({ type: 'dotted', color: 'blue', width: 10 })).toEqual('bo_10px_dotted_blue')
+  })
+})
+
+describe('position', () => {
+  it('should return full options string', () => {
+    expect(position({ x: 10, y: 10 })).toBe('x_10,y_10')
+  })
+
+  it('should return x only', () => {
+    expect(position({ x: 10 })).toBe('x_10')
+  })
+
+  it('should return y only', () => {
+    expect(position({ y: 10 })).toBe('y_10')
+  })
+
+  it('should return empty string', () => {
+    expect(position({})).toBe('')
+  })
+})
+
+describe('effect', () => {
+  it('should return legal string for array input', () => {
+    expect(effect(['grayscale', 'tint:80'])).toBe('e_grayscale:tint:80')
+  })
+
+  it('should return legal string for string input', () => {
+    expect(effect('grayscale:tint')).toBe('e_grayscale:tint')
+  })
+
+  it('should return empty string', () => {
+    expect(effect('')).toBe('')
   })
 })

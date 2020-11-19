@@ -4,6 +4,6 @@
     "lib/**/*"
   ],
   "compilerOptions": {
-    "outDir": "./dist"    
+    "outDir": "./dist/cjs"    
   }
 }

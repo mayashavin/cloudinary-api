@@ -95,16 +95,6 @@ export const getResourceType = ({
 
 const isUrl = (str) => str && !!str.match(/^https?:\//)
 
-const isFetchRemote = (type?: string) => type === 'fetch'
-
-const makeUrl = (str: string) => {
-  const midPath = str.startsWith('/') ? '' : '/'
-
-  return `${document.location.protocol}//${document.location.host}${str.startsWith('?') ? document.location.pathname : midPath}${str}`
-}
-
-const convertPublicIdToUrl = (publicId: string, type?: string) => !isUrl(publicId) && isFetchRemote(type) ? makeUrl(publicId) : publicId
-
 export const getPathToAsset = (publicId: string, { urlSuffix = '', format = '' } : { urlSuffix?: string, format?: string }):string => {
   if (isUrl(publicId)) return encodePublicId(publicId)
 
@@ -136,7 +126,7 @@ export const url = (publicId: string, cloud: CloudConfig = { cloudName: ''}, opt
 
   const format = options.fetchFormat || options.format || 'auto'
 
-  const $options = {
+  const $options:TransformerOption | TransformerVideoOption = {
     quality: 'auto',
     ...options,
     format

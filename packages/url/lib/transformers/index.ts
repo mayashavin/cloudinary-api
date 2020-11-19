@@ -24,11 +24,20 @@ export const getBorder = (options):string => {
   return borderModification
 }
 
+export const getPosition = (options): string => {
+  if (!options.x && !options.y && !options.position) return ''
+
+  const { position } = require('./position')
+
+  return position(options.position || { x: options.x, y: options.y })
+}
+
 export const getTransformations = (options):string[] => {
   const result = []
 
   result.push(getResize(options))
   result.push(getBorder(options))
+  result.push(getPosition(options))
 
   for (let modifier in options) {
     const value = options[modifier]

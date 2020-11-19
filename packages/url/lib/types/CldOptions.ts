@@ -4,6 +4,15 @@ import { Resize } from '../transformers/resize'
 import { Border } from '../transformers/border'
 import { CustomFunction } from '../transformers/customFunc'
 import { Offset } from '../transformers/video/offset'
+import { Position } from '../transformers/position'
+import { Effect } from '../transformers/effect'
+import { ROTATION_MODES } from '../constants'
+
+export type Radius = number | string
+
+export type Flag = string | string[]
+
+export type Rotation = number | typeof ROTATION_MODES[keyof typeof ROTATION_MODES]
 
 export interface CldOptions {
   cloud?: CloudConfig,
@@ -30,11 +39,10 @@ export interface CloudConfig {
 }
 
 export interface TransformerOption {
-  rotation?: string | number,
-  aspectRatio?: string,
+  rotation?: Rotation,
   background?: string,
   border?: Border | string,
-  effect?: string | string[],
+  effect?: Effect,
   color?: string,
   resize?: Resize,
   colorSpace?: string,
@@ -49,22 +57,21 @@ export interface TransformerOption {
   fetchFormat?: string,
   gravity?: string,
   if?: string,
-  flags?: string | string[],
+  flags?: Flag,
   opacity?: number,
   overlay?: string,
   page?: string,
   prefix?: string,
   quality?: string,
-  radius?: number | string,
+  radius?: Radius,
   rawTransformation?: string,
   transformation?: string,
   chaining?: TransformerOption[],
   underlay?: string,
   variable?: string,
   variables?: string,
-  x?: number,
-  y?: number,
-  zoom?: string | number
+  position?: Position,
+  zoom?: number
 }
 
 export interface TransformerVideoOption extends TransformerOption{
