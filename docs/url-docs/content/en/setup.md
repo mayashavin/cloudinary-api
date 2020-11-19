@@ -7,20 +7,20 @@ category: Guide
 
 ## Installation
 
-Add `cloudinary-builder-url` dependency to your project:
+Add `cloudinary-build-url` dependency to your project:
 
 <code-group>
   <code-block label="Yarn" active>
 
   ```bash
-  yarn add cloudinary-builder-url
+  yarn add cloudinary-build-url
   ```
 
   </code-block>
   <code-block label="NPM">
 
   ```bash
-  npm install cloudinary-builder-url
+  npm install cloudinary-build-url
   ```
 
   </code-block>
@@ -31,7 +31,7 @@ Add `cloudinary-builder-url` dependency to your project:
 You can provide a *global* configuration for Cloudinary builder by using `setConfig()` method.
 
 ```js
-import { setConfig } from 'cloudinary-builder-url'
+import { setConfig } from 'cloudinary-build-url'
 
 setConfig({
   cloudName: 'your-cloud-name',
