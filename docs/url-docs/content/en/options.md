@@ -3,6 +3,7 @@ title: Options
 description: 'Configuration options for Cloudinary url builder'
 position: 3
 category: Guide
+version: 1
 ---
 
 To configure the builder globally, you can use `setConfig()` method:
@@ -28,6 +29,8 @@ const src = buildImageUrl('public-id', {
 ```
 
 ## Cloudinary options
+
+* Type: `CloudConfig`
 
 ### `cloudName`
 

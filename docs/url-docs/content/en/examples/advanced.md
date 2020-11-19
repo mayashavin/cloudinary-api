@@ -1,7 +1,7 @@
 ---
 title: Advanced
 description: 'Advanced examples to use Cloudinary url builder'
-position: 7
+position: 8
 category: Examples
 ---
 

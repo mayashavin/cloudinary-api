@@ -3,9 +3,10 @@ title: Transformations
 description: 'Supported transformation fields'
 position: 5
 category: Usage
+version: 1
 ---
 
-To transform and optimize your images and videos on delivery, you can pass the following fields to `options.transformations` in each build url method call.
+To transform and optimize your images and videos on delivery, you can pass the following fields to `options.transformations` in each build url method call or `options` in `Transformer.transform` call.
 
 <alert type="info">
 
@@ -52,7 +53,7 @@ See [Resize type](https://cloudinary.com/documentation/image_transformation_refe
 
 ### `rotation`
 
-* Type: `String` | `Number`
+* Type: `Rotation`
 * Accepted values: any degree number, or `auto_right` | `auto_left` | `ignore` | `vflip` | `hflip`
 
 To rotate or flip a given asset by certain degrees, or automatically based on orientation.
@@ -69,6 +70,12 @@ const url = buildImageUrl('example', {
   }
 })
 ```
+
+<alert type="info">
+
+You can use import `ROTATION_MODES` from `cloudinary-build-url` to choose the desired rotation mode.
+
+</alert>
 
 ### `background`
 
@@ -118,7 +125,8 @@ const url = buildImageUrl('example', {
 
 ### `effect`
 
-* Type: `String`
+* Type: `Effect`
+* An available effect or array of effects to apply to asset.
 
 Apply a filter or an effect on the desired asset. See[Effects](https://cloudinary.com/documentation/image_transformation_reference#effect_parameter) for the full list of syntax and available effects.
 
@@ -221,7 +229,7 @@ const url = buildImageUrl('example', {
 
 * Type: `String`
 
-Create a layer over the base image. This can be use with `x`, `y`, `gravity` to customize the position of the overlay.
+Create a layer over the base image. This can be use with `position.x`, `position.y`, `gravity` to customize the position of the overlay.
 
 ```js
 import { buildImageUrl } from 'cloudinary-build-url'
@@ -241,7 +249,7 @@ const url = buildImageUrl('face_top', {
 
 * Type: `String`
 
-Create a layer below a partial-transparent image. This can be use with `x`, `y`, `gravity` to customize the position of the underlay.
+Create a layer below a partial-transparent image. This can be use with `position.x`, `position.y`, `gravity` to customize the position of the underlay.
 
 ```js
 import { buildImageUrl } from 'cloudinary-build-url'
@@ -545,11 +553,15 @@ const url = buildImageUrl('example', {
 })
 ```
 
-### `x`
+### `position`
 
-* Type: `Number`
-
-Horizontal coordinate for cropping, placing overlay and applying regional effects.
+* Type: `Position`
+  * `x`
+    * Type: `number`
+    * Horizontal coordinate for cropping, placing overlay and applying regional effects.
+  * `y`
+    * Type: `Number`
+    * Vertical coordinate for cropping, placing overlay and applying regional effects.
 
 ```js
 import { buildImageUrl } from 'cloudinary-build-url'
@@ -559,31 +571,10 @@ const url = buildImageUrl('face-top', {
     cloudName: 'demo',
   },
   transformations: {
-    x: 130,
-    resize: {
-      width: 80,
-      height: 80,
-      type: 'crop'
+    position: {
+      x: 130,
+      y: 340
     }
-  }
-})
-```
-
-### `y`
-
-* Type: `Number`
-
-Vertical coordinate for cropping, placing overlay and applying regional effects.
-
-```js
-import { buildImageUrl } from 'cloudinary-build-url'
-
-const url = buildImageUrl('face-top', {
-  cloud: {
-    cloudName: 'demo',
-  },
-  transformations: {
-    y: 340,
     resize: {
       width: 80,
       height: 80,
