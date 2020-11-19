@@ -11,9 +11,9 @@
 
 Build URL for images and videos based on configurations.
 
-[📖&nbsp;Documentation](https://cloudinary-build-url.netlify.app)
+[📖&nbsp; Documentation](https://cloudinary-build-url.netlify.app)
 
-[💻&nbsp;Code](https://github.com/mayashavin/cloudinary-api/tree/main/packages/url)
+[💻&nbsp; Codebase](https://github.com/mayashavin/cloudinary-api/tree/main/packages/url)
 
 ```
 import { buildUrl } from 'cloudinary-build-url'

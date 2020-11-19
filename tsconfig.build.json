@@ -11,7 +11,8 @@
     ],
     "lib": ["es6", "dom", "es7"],
     "outDir": "./dist",
-    "sourceMap": true
+    "esModuleInterop": true,
+    "moduleResolution": "node"
   },
   "exclude": [
     "node_modules",
