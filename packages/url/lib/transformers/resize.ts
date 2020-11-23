@@ -1,4 +1,4 @@
-export type ResizeType = 'imaggaScale' | 'imaggaCrop' | 'crop' | 'fill' | 'scale' | 'minimumPad' | 'fit' | 'pad' | 'limitFit' | 'thumbnail' | 'limitFill' | 'minimumFit' | 'limitPad' | 'fillPad'
+export type ResizeType = 'imaggaScale' | 'imaggaCrop' | 'crop' | 'fill' | 'scale' | 'minimumPad' | 'fit' | 'pad' | 'limitFit' | 'thumb' | 'limitFill' | 'minimumFit' | 'limitPad' | 'fillPad'
 
 export interface Resize {
   type?: ResizeType, 
