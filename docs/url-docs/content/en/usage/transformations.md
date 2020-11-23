@@ -446,7 +446,7 @@ const url = buildImageUrl('non-exist', {
 
 ### `density`
 
-* Type: `String`
+* Type: `Number`
 
 To define the density when converting a vector file to image format.
 
