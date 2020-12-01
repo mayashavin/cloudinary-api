@@ -1,12 +1,14 @@
 import { ResourceType } from "./ResourceType";
 import { StorageType } from "./StorageType";
-import { Resize } from '../transformers/resize'
-import { Border } from '../transformers/border'
-import { CustomFunction } from '../transformers/customFunc'
-import { Offset } from '../transformers/video/offset'
-import { Position } from '../transformers/position'
-import { Effect } from '../transformers/effect'
-import { ROTATION_MODES } from '../constants'
+import { Resize } from './transformation/Resize'
+import { Border } from './transformation/Border'
+import { CustomFunction } from './transformation/CustomFunc'
+import { Offset } from './transformation/Offset'
+import { Position } from './transformation/Position'
+import { Effect } from './transformation/Effect'
+import { ROTATION_MODES } from '../constants/rotation'
+import { Gravity } from "./transformation/Gravity";
+import { Variable } from "./transformation/Variable";
 
 export type Radius = number | string
 
@@ -39,7 +41,7 @@ export interface CloudConfig {
 }
 
 export interface TransformerOption {
-  rotation?: Rotation,
+  rotate?: Rotation,
   background?: string,
   border?: Border | string,
   effect?: Effect,
@@ -55,10 +57,10 @@ export interface TransformerOption {
   endIf?: string,
   format?: string,
   fetchFormat?: string,
-  gravity?: string,
+  gravity?: Gravity,
   if?: string,
   flags?: Flag,
-  opacity?: number,
+  opacity?: number | string,
   overlay?: string,
   page?: string,
   prefix?: string,
@@ -68,10 +70,9 @@ export interface TransformerOption {
   transformation?: string,
   chaining?: TransformerOption[],
   underlay?: string,
-  variable?: string,
-  variables?: string,
+  variables?: Variable | Variable[],
   position?: Position,
-  zoom?: number
+  zoom?: number | string
 }
 
 export interface TransformerVideoOption extends TransformerOption{
