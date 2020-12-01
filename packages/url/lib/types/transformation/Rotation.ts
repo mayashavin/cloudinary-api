@@ -1,0 +1,1 @@
+export type Rotation = number | string
