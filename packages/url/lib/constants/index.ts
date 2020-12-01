@@ -35,15 +35,11 @@ export const TRANSFORMERS = {
   rotate: 'a',
   audioCodec: 'ac',
   audioFrequency: 'af',
-  // aspectRatio: 'ar',
   background: 'b',
   bitRate: 'br',
-  // border: 'bo', // Border: { width:, height:, type:, color: }
   color: 'co',
   colorSpace: 'cs',
-  // crop: 'c', //resize: { width, height: , type}
   customFunction: 'fn',
-  // customPreFunction: 'fn_pre:', //make sure it won't duplicate _
   defaultImage: 'd',
   delay: 'dl',
   density: 'dn',
@@ -57,10 +53,8 @@ export const TRANSFORMERS = {
   // flags: 'fl',
   gravity: 'g',
   // fps: 'fps',
-  // height: 'h',
   // htmlHeight: '',
   // htmlWidth: '',
-  // if: '',
   keyframeInterval: 'ki',
   ocr: 'ocr',
   // offset: '',
@@ -71,25 +65,18 @@ export const TRANSFORMERS = {
   prefix: 'p',
   quality: 'q',
   radius: 'r',
-  // rawTransformation,
-  // size,
   // sourceTypes,
   // sourceTransformation,
   startOffset: 'so',
   streamingProfile: 'sp',
   transformation: 't',
   underlay: 'u',
-  // variable,
-  // variables,
   videoCodec: 'vc',
   videoSampling: 'vs',
-  // width: 'w',
-  // x: 'x',
-  // y: 'y',
   zoom: 'z'
 }
 
 export { RESIZE_TYPES } from './resize'
 export { ArithmeticExpression } from './arithmetic'
-export { IMAGE_CONDITIONAL_FIELDS, IMAGE_CONDITIONAL_OPERATORS } from './condition'
+export { ConditionOperators, ConditionalParams } from './condition'
 export { ROTATION_MODES } from './rotation'

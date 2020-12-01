@@ -25,7 +25,8 @@
     "test:ci": "lerna run test:ci --stream",
     "prettier": "yarn prettier --write .",
     "changelog": "node scripts/changelog.js",
-    "test:url": "npm --prefix packages/url run test:unit"
+    "test:url": "npm --prefix packages/url run test:unit",
+    "bundlewatch:url": "npm --prefix packages/url run bundlewatch"
   },
   "author": "Maya Shavin <dpnminh@gmail.com>",
   "license": "MIT",
