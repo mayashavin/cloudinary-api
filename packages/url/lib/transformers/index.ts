@@ -1,6 +1,10 @@
 import { TRANSFORMERS } from '../constants'
+import { AcceptNumbericVars } from '../constants/arithmetic'
 import { effect } from './effect'
+import { formatValue } from './expression'
+import { flags } from './flags'
 import { rawTransformation } from './rawTransformation'
+import { variables } from './variables'
 
 export type Transformation = Array<string | string[]>
 
@@ -35,6 +39,7 @@ export const getPosition = (options): string => {
 export const getTransformations = (options):string[] => {
   const result = []
 
+  result.push(variables(options.variables))
   result.push(getResize(options))
   result.push(getBorder(options))
   result.push(getPosition(options))
@@ -45,10 +50,13 @@ export const getTransformations = (options):string[] => {
 
     if (!mapping || !value) continue
 
-    result.push(`${mapping}_${value}`)
+    const isAcceptedNumberic = AcceptNumbericVars.includes(modifier)
+
+    result.push(`${mapping}_${isAcceptedNumberic ? formatValue(value) : value}`)
   }
 
   result.push(effect(options.effect))
+  result.push(flags(options.flags))
   result.push(rawTransformation(options.rawTransformation))
   return result.filter(Boolean)
 }

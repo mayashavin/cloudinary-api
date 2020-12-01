@@ -1,7 +1,4 @@
-export interface CustomFunction {
-  type: 'wasm' | 'remote',
-  source: string,
-}
+import type { CustomFunction } from '../types/transformation/CustomFunc'
 
 export const customFunction = ({ type, source }: CustomFunction) => {
   if (!type || !source) return ''

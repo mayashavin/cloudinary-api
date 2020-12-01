@@ -1,17 +1,12 @@
-export type ResizeType = 'imaggaScale' | 'imaggaCrop' | 'crop' | 'fill' | 'scale' | 'minimumPad' | 'fit' | 'pad' | 'limitFit' | 'thumb' | 'limitFill' | 'minimumFit' | 'limitPad' | 'fillPad'
+import { Resize } from "../types/transformation/Resize"
+import { formatValue } from "./expression"
 
-export interface Resize {
-  type?: ResizeType, 
-  width?: number | string, 
-  height?: number | string,
-  aspectRatio?: string,
-}
 
 export const resize = ({ type, width, height, aspectRatio }: Resize) => {
-  const w = width ? `w_${width}` : ''
-  const h = height ? `h_${height}` : ''
+  const w = width ? `w_${formatValue(width)}` : ''
+  const h = height ? `h_${formatValue(height)}` : ''
   const crop = type ? `c_${type}` : ''
-  const ar = aspectRatio ? `ar_${aspectRatio}` : ''
+  const ar = aspectRatio ? `ar_${formatValue(aspectRatio)}` : ''
 
   return [ crop, w, h, ar ].filter(Boolean).join()
 }
