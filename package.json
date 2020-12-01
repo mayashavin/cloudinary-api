@@ -5,6 +5,11 @@
   "workspaces": [
     "packages/*"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:unit"
+    }
+  },
   "scripts": {
     "build": "lerna run build --stream",
     "prelint": "yarn build",
@@ -15,10 +20,12 @@
     "release": "lerna publish --conventional-commits",
     "pretest": "yarn build && jest --rootDir __tests__",
     "test": "lerna run test --stream",
+    "test:unit": "yarn test:url",
     "pretest:ci": "yarn pretest",
     "test:ci": "lerna run test:ci --stream",
     "prettier": "yarn prettier --write .",
-    "changelog": "node scripts/changelog.js"
+    "changelog": "node scripts/changelog.js",
+    "test:url": "npm --prefix packages/url run test:unit"
   },
   "author": "Maya Shavin <dpnminh@gmail.com>",
   "license": "MIT",
@@ -33,7 +40,8 @@
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
     "prettier": "^2.1.2",
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "husky": "^4.3.0"
   },
   "keywords": [
     "cloudinary",
