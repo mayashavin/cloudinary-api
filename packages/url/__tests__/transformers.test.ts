@@ -3,6 +3,8 @@ import { resize } from '../lib/transformers/resize'
 import { border } from '../lib/transformers/border'
 import { position } from '../lib/transformers/position'
 import { effect } from '../lib/transformers/effect'
+import { flags } from '../lib/transformers/flags'
+import { convert } from '../lib/transformers/expression'
 
 describe('Modifiers', () => {
   describe('transform()', () => {
@@ -19,6 +21,29 @@ describe('Modifiers', () => {
       ])
     })
 
+    it('returns valid mapping with variables', () => {
+      const options = {
+        width: '$big',
+        height: 'initialWidth + 20',
+        aspectRatio: '16:9',
+        crop: 'scale'
+      }
+
+      expect(transform(options)).toEqual([
+        'c_scale,w_$big,h_iw_add_20,ar_16:9',
+      ])
+    })
+
+    it('returns valid mapping with rotation variables', () => {
+      const options = {
+        rotate: 'initialWidth / 2'
+      }
+
+      expect(transform(options)).toEqual([
+        'a_iw_div_2',
+      ])
+    })
+
     it('returns modifications with chained', () => {
       const options = {
         width: 500,
@@ -27,9 +52,13 @@ describe('Modifiers', () => {
         crop: 'scale',
         chaining: [{
           bitRate: 12,
-          effect: 'grayscale'
+          effect: {
+            name: 'grayscale'
+          }
         }, {
-          effect: 'pixelate',
+          effect: {
+            name: 'pixelate'
+          },
           border: {
             width: 1,
             type: 'dashed',
@@ -135,9 +164,13 @@ describe('Modifiers', () => {
         crop: 'scale',
         chaining: [{
           bitRate: 12,
-          effect: 'grayscale'
+          effect: {
+           name: 'grayscale'
+          }
         }, {
-          effect: 'pixelate',
+          effect: {
+            name: 'pixelate'
+          },
           border: {
             width: 1,
             type: 'dashed',
@@ -202,7 +235,7 @@ describe('border', () => {
   })
 
   it('should return options', () => {
-    expect(border({ type: 'dotted', color: 'blue', width: 10 })).toEqual('bo_10px_dotted_blue')
+    expect(border({ color: 'blue', width: 10 })).toEqual('bo_10px_solid_blue')
   })
 })
 
@@ -226,14 +259,66 @@ describe('position', () => {
 
 describe('effect', () => {
   it('should return legal string for array input', () => {
-    expect(effect(['grayscale', 'tint:80'])).toBe('e_grayscale:tint:80')
+    expect(effect({
+      name: 'grayscale',
+      value: ['tint','80']
+    })).toBe('e_grayscale:tint:80')
   })
 
-  it('should return legal string for string input', () => {
-    expect(effect('grayscale:tint')).toBe('e_grayscale:tint')
-  })
+  it('should return legal string for string value input', () => {
+    expect(effect({
+      name: 'grayscale',
+      value: 'tint'
+    })).toBe('e_grayscale:tint')
+  });
 
-  it('should return empty string', () => {
-    expect(effect('')).toBe('')
-  })
+  // it('should return empty string if there is no name passed', () => {
+  //   expect(effect({
+  //     name: '',
+  //     value: 'tint'
+  //   })).toBe('')
+  // });
+
+  it('should return effect string without value', () => {
+    expect(effect({
+      name: 'grayscale',
+    })).toBe('e_grayscale')
+  });
 })
+
+describe('flags', () => {
+  it('should return empty string for empty string', () => {
+    expect(flags('')).toBe('')
+  });
+
+  it('should return empty string for empty array', () => {
+    expect(flags([])).toBe('')
+  });
+
+  it('should return legal string for none-empty string', () => {
+    expect(flags('cutter')).toBe('fl_cutter')
+  });
+
+  it('should return legal string for non-empty array', () => {
+    expect(flags(['cutter', 'hello'])).toBe('fl_cutter:hello')
+  });
+})
+
+describe('expression', () => {
+  it('should not parse empty expression', () => {
+    expect(convert('')).toBe('')
+  });
+
+  it('should convert arithmetic expression', () => {
+    expect(convert('a + 100 / 3')).toBe('a_add_100_div_3')
+  })
+
+  it('should convert pre defined variables', () => {
+    expect(convert('initialWidth + 100 / 3')).toBe('iw_add_100_div_3')
+  });
+
+  it('should not convert variable with prefix $ ', () => {
+    expect(convert('$initialWidth + 100 / 3')).toBe('$initialWidth_add_100_div_3')
+  });
+  
+});
