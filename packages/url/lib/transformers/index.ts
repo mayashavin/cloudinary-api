@@ -1,5 +1,6 @@
 import { TRANSFORMERS } from '../constants'
 import { AcceptNumbericVars } from '../constants/arithmetic'
+import { condition } from './condition'
 import { effect } from './effect'
 import { formatValue } from './expression'
 import { flags } from './flags'
@@ -58,6 +59,8 @@ export const getTransformations = (options):string[] => {
   result.push(effect(options.effect))
   result.push(flags(options.flags))
   result.push(rawTransformation(options.rawTransformation))
+  result.push(condition(options.condition))
+  
   return result.filter(Boolean)
 }
 

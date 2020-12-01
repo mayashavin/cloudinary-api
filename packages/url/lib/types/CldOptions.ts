@@ -9,6 +9,7 @@ import { Effect } from './transformation/Effect'
 import { ROTATION_MODES } from '../constants/rotation'
 import { Gravity } from "./transformation/Gravity";
 import { Variable } from "./transformation/Variable";
+import { Condition } from "./transformation";
 
 export type Radius = number | string
 
@@ -58,7 +59,7 @@ export interface TransformerOption {
   format?: string,
   fetchFormat?: string,
   gravity?: Gravity,
-  if?: string,
+  condition?: Condition,
   flags?: Flag,
   opacity?: number | string,
   overlay?: string,
