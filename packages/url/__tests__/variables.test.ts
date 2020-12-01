@@ -41,6 +41,24 @@ describe('computeVariable()', () => {
 
     expect(computeVariable(variable)).toBe('$small_!breadth!_to_f')
   });
+
+  it('should return empty string if no expression', () => {
+    expect(computeVariable({
+      name: 'small',
+      value: {
+        expression: ''
+      }
+    })).toBe('')
+  });
+
+  it('should return mapped expression from array', () => {
+    expect(computeVariable({
+      name: 'small',
+      value: {
+        expression: ['a', 'b']
+      }
+    })).toBe('$small_!a:b!')
+  });
 });
 
 describe('variables()', () => {
@@ -76,5 +94,5 @@ describe('variables()', () => {
       }
     }]
     expect(variables(input)).toBe('$small_!breadth!_to_f,$big_2_mul_$small')
-  })
+  })  
 });

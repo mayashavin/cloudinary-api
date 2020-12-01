@@ -5,6 +5,8 @@ import { position } from '../lib/transformers/position'
 import { effect } from '../lib/transformers/effect'
 import { flags } from '../lib/transformers/flags'
 import { convert } from '../lib/transformers/expression'
+import { TransformerVideoOption } from '../lib/types/CldOptions'
+import { Brightness } from '../lib/constants/effects'
 
 describe('Modifiers', () => {
   describe('transform()', () => {
@@ -73,6 +75,26 @@ describe('Modifiers', () => {
         ['bo_1px_dashed_#fff', 'e_pixelate']
       ])
     })
+
+    it('should transform video url', () => {
+      const options:TransformerVideoOption = {
+        audioCodec: 'aac',
+        colorSpace: 'srgb',
+        effect: {
+          name: Brightness.Auto,
+          value: 50
+        },
+        flags: ['animated', 'waveform'],
+        gravity: 'auto'
+      }
+      expect(transform(options)).toEqual([
+        'ac_aac',
+        'cs_srgb',
+        'g_auto',
+        'e_auto_brightness:50',
+        'fl_animated:waveform'
+      ])
+    });
   })
 
   describe('getBorder()', () => {
@@ -237,6 +259,14 @@ describe('border', () => {
   it('should return options', () => {
     expect(border({ color: 'blue', width: 10 })).toEqual('bo_10px_solid_blue')
   })
+
+  it('should return empty string', () => {
+    expect(border({ width: '' })).toBe('')
+  });
+
+  it('should return converted expression', () => {
+    expect(border({ width: 'initialWidth + 3 / 10' })).toBe('bo_iw_add_3_div_10_solid_black')
+  });
 })
 
 describe('position', () => {
@@ -288,7 +318,7 @@ describe('effect', () => {
 
 describe('flags', () => {
   it('should return empty string for empty string', () => {
-    expect(flags('')).toBe('')
+    expect(flags()).toBe('')
   });
 
   it('should return empty string for empty array', () => {
@@ -296,11 +326,11 @@ describe('flags', () => {
   });
 
   it('should return legal string for none-empty string', () => {
-    expect(flags('cutter')).toBe('fl_cutter')
+    expect(flags('awebp')).toBe('fl_awebp')
   });
 
   it('should return legal string for non-empty array', () => {
-    expect(flags(['cutter', 'hello'])).toBe('fl_cutter:hello')
+    expect(flags(['awebp', 'any_format'])).toBe('fl_awebp:any_format')
   });
 })
 

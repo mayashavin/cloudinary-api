@@ -6,6 +6,8 @@ import { formatValue } from './expression'
 import { flags } from './flags'
 import { rawTransformation } from './rawTransformation'
 import { variables } from './variables'
+import { fps } from './video/fps'
+import { offset } from './video/offset'
 
 export type Transformation = Array<string | string[]>
 
@@ -44,6 +46,8 @@ export const getTransformations = (options):string[] => {
   result.push(getResize(options))
   result.push(getBorder(options))
   result.push(getPosition(options))
+  result.push(fps(options.fps))
+  result.push(offset(options.offset))
 
   for (let modifier in options) {
     const value = options[modifier]

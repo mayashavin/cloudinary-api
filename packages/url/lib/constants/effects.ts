@@ -72,14 +72,28 @@ export const Colorblind = {
   Simulate: 'simulate_colorblind'
 } as const
 
-export const PixelateEffect = {
+export const PixelateEffects = {
   Default: 'pixelate',
   Region: 'pixelate_region',
   Faces: 'pixelate_faces'
 } as const
 
-export const BlurEffect = {
+export const BlurEffects = {
   Default: 'blur',
   Region: 'blur_region',
   Faces: 'blur_faces'
 } as const
+
+export const VideoEffects = {
+  Accelerate: 'accelerate',
+  Reverse: 'reverse',
+  Boomerang: 'boomerang',
+  Loop: 'loop',
+  ProgressBar: 'progressbar',
+  Transparent: 'transparent',
+  Preview: 'preview',
+  Transition: 'transition',
+  Noise: 'noise',
+  Deshake: 'deshake',
+  Volume: 'volume'
+}

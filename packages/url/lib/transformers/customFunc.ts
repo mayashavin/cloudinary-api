@@ -5,7 +5,5 @@ export const customFunction = ({ type, source }: CustomFunction) => {
 
   const functionType = `fn_${type}`
 
-  const funcSource = type === 'remote' ? btoa(source) : source
-
-  return `${functionType}:${funcSource}`
+  return `${functionType}:${source}`
 }

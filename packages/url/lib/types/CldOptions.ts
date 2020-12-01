@@ -5,11 +5,13 @@ import { Border } from './transformation/Border'
 import { CustomFunction } from './transformation/CustomFunc'
 import { Offset } from './transformation/Offset'
 import { Position } from './transformation/Position'
-import { Effect } from './transformation/Effect'
+import { Effect, VEffect } from './transformation/Effect'
 import { ROTATION_MODES } from '../constants/rotation'
 import { Gravity } from "./transformation/Gravity";
 import { Variable } from "./transformation/Variable";
-import { Condition } from "./transformation";
+import { Condition } from "./transformation/Condition";
+import { VFlag } from "./transformation/Flag";
+import { ColorSpace, VColorSpace } from "./transformation/ColorSpace";
 
 export type Radius = number | string
 
@@ -41,32 +43,32 @@ export interface CloudConfig {
   forceVersion?: boolean
 }
 
-export interface TransformerOption {
-  rotate?: Rotation,
+export type TransformerBaseOptions = {
+  resize?: Resize,
+  gravity?: Gravity,
   background?: string,
+  overlay?: string,
+  colorSpace?: ColorSpace | VColorSpace,
+  format?: string,
+  quality?: string | number,
+  rotate?: Rotation,
+  radius?: Radius,
+  dpr?: string | number,
+  fetchFormat?: string,
+}
+
+export interface TransformerOption extends TransformerBaseOptions {
   border?: Border | string,
+  flags?: Flag,
   effect?: Effect,
   color?: string,
-  resize?: Resize,
-  colorSpace?: string,
   customFunction?: CustomFunction,
   defaultImage?: string,
-  delay?: number,
   density?: number,
-  dpr?: string | number,
-  else?: string,
-  endIf?: string,
-  format?: string,
-  fetchFormat?: string,
-  gravity?: Gravity,
   condition?: Condition,
-  flags?: Flag,
   opacity?: number | string,
-  overlay?: string,
   page?: string,
   prefix?: string,
-  quality?: string,
-  radius?: Radius,
   rawTransformation?: string,
   transformation?: string,
   chaining?: TransformerOption[],
@@ -76,19 +78,24 @@ export interface TransformerOption {
   zoom?: number | string
 }
 
-export interface TransformerVideoOption extends TransformerOption{
-  audioCodec?: string,
-  audioFrequency?:string,
-  bitRate?: string | number,
-  fps?: string,
-  keyframeInterval?: string,
-  offset?: Offset
-  poster?: string,
-  sourceTypes?: string[],
-  videoCodec?: string,
-  duration?: string | number,
+export interface TransformerVideoOption extends VideoSettings, AudioSettings, TransformerBaseOptions {
+  offset?: Offset,
   videoSampling?: string
-  fallbackContent?: string,
-  ocr?: string,
+  chaining?: TransformerVideoOption[],
+  delay?: number,
+  flags?: VFlag,
+  effect?: VEffect
 }
 
+export type VideoSettings = {
+  videoCodec?: string,
+  fps?: string,
+  streamingProfile?: string,
+  bitRate?: string | number,
+  keyframeInterval?: string,
+}
+
+export type AudioSettings = {
+  audioCodec?: string,
+  audioFrequency?:string,
+}

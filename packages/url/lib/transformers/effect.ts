@@ -1,7 +1,7 @@
-import { Effect } from '../types/transformation/Effect'
+import { Effect, VEffect } from '../types/transformation/Effect'
 import { toString } from '../utils'
 
-export const effect = (obj: Effect):string => {
+export const effect = (obj: Effect | VEffect):string => {
   const isString = typeof obj === 'string'
 
   if (!obj || (!isString && !obj.name)) return ''

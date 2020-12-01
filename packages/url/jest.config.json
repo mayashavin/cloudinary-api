@@ -2,13 +2,13 @@
   "preset": "ts-jest",
   "testEnvironment": "node",
   "bail": true,
+  "collectCoverage": true,
   "collectCoverageFrom": [
     "<rootDir>/lib/**/*.ts",
-    "<rootDir>/lib/**/*.ts"
+    "<rootDir>/lib/**/*.ts",
+    "!<rootDir>/lib/constants/*"
   ],
-  "modulePaths": [
-    "<rootDir>/lib"
-  ],
+  "modulePaths": ["<rootDir>/lib"],
   "coverageThreshold": {
     "global": {
       "branches": 95,
@@ -24,11 +24,14 @@
   },
   "reporters": [
     "default",
-    ["jest-html-reporters", {
-      "publicPath" : "./public/progress/",
-      "filename": "api-report.html",
-      "pageTitle": "cloudinary-build-url Report",
-      "expand": true
-    }]
+    [
+      "jest-html-reporters",
+      {
+        "publicPath": "./public/progress/",
+        "filename": "url-report.html",
+        "pageTitle": "cloudinary-build-url Report",
+        "expand": true
+      }
+    ]
   ]
 }

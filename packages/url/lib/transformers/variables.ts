@@ -31,7 +31,7 @@ export const computeVariable = (variable: Variable):string => {
 
   const varValue = toString([ValueAssignable[variable.assignFrom], value], ':')
 
-  return toString([name, varValue], '_')
+  return varValue ? toString([name, varValue], '_') : ''
 }
 
 export const variables = (value?: Variable | Variable[]):string => {

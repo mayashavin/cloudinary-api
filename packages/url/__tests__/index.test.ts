@@ -1,4 +1,7 @@
-import { buildUrl, buildVideoUrl, getConfig, setConfig } from '../lib/index'
+import { buildImageUrl, buildUrl, buildVideoUrl, extractPublicId, getConfig, RESOURCE_TYPES, setConfig, Transformer } from '../lib/index'
+import { RESOURCE_TYPES as OriginalResourceTypes, STORAGE_TYPES as OriginalStorageTypes, ROTATION_MODES as OriginalRotationModes, STORAGE_TYPES, ROTATION_MODES } from '../lib/constants'
+import { extractPublicId as originalExtractPublicId } from '../lib/url'
+import { transform, toTransformationStr } from '../lib/transformers'
 
 describe('General tests', () => {
   it('configurations', () => {
@@ -12,6 +15,13 @@ describe('General tests', () => {
   })
 
   describe('buildUrl()', () => {
+    it('should return default transformation', () => {
+      expect(buildUrl('example', {
+        cloud: {
+          cloudName: 'demo'
+        }
+      })).toBe('https://res.cloudinary.com/demo/image/upload/q_auto,f_auto/example')
+    });
     it('should return right url with configurations', () => {
       setConfig({
         cloudName: 'm'
@@ -48,6 +58,24 @@ describe('General tests', () => {
         cloudName: 'm'
       })
     });
+})
+
+  describe('buildVideoUrl()', () => {
+    it('should return url with default config when no cloud', () => {
+      setConfig({
+        cloudName: 'demo'
+      })
+
+      expect(buildVideoUrl('example', { transformations: {} })).toBe('https://res.cloudinary.com/demo/video/upload/q_auto,f_auto/example')
+    });
+
+    it('should return url with default config', () => {
+      setConfig({
+        cloudName: 'demo'
+      })
+
+      expect(buildVideoUrl('example', {})).toBe('https://res.cloudinary.com/demo/video/upload/q_auto,f_auto/example')
+    });
 
     it('should return right url format for video', () => {
       expect(buildVideoUrl('example', {
@@ -63,5 +91,61 @@ describe('General tests', () => {
       })).toEqual('https://res.cloudinary.com/demo/video/upload/c_scale,w_200,q_auto,f_auto/example') 
 
     })
-  })
+  });
+
+  describe('buildImageUrl()', () => {
+    
+    it('should return url with default config when no cloud', () => {
+      setConfig({
+        cloudName: 'demo'
+      })
+
+      expect(buildImageUrl('example', { transformations: {} })).toBe('https://res.cloudinary.com/demo/image/upload/q_auto,f_auto/example')
+    });
+    it('should return url with default config', () => {
+      setConfig({
+        cloudName: 'demo'
+      })
+
+      expect(buildImageUrl('example', {})).toBe('https://res.cloudinary.com/demo/image/upload/q_auto,f_auto/example')
+    });
+
+    it('should return url with cloud config', () => {
+
+      expect(buildImageUrl('example', {
+        cloud: {
+          cloudName: 'demo'
+        },
+        transformations: {
+          rotate: 10,
+        }
+      })).toBe('https://res.cloudinary.com/demo/image/upload/q_auto,a_10,f_auto/example')
+    });
+  });
+
+  describe('exports', () => {
+    it('should export resourceTypes', () => {
+      expect(RESOURCE_TYPES).toEqual(OriginalResourceTypes)
+    });
+
+    it('should export extractPublicId', () => {
+      expect(extractPublicId).toEqual(extractPublicId)
+    });
+
+    it('should export STORAGE_TYPES', () => {
+      expect(STORAGE_TYPES).toEqual(OriginalStorageTypes)
+    });
+
+    it('should export ROTATION_MODES', () => {
+      expect(ROTATION_MODES).toEqual(OriginalRotationModes)
+    });
+
+    it('should export transform', () => {
+      expect(Transformer.transform).toEqual(transform)
+    });
+
+    it('should export toTransformationStr', () => {
+      expect(Transformer.toString).toEqual(toTransformationStr)
+    });
+  });
 })
