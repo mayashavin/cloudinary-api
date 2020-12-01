@@ -43,13 +43,9 @@ const Transformer:TransformerType = { transform, toString: toTransformationStr }
 
 export { RESOURCE_TYPES, extractPublicId, STORAGE_TYPES, ROTATION_MODES, Transformer }
 
-export type { CldOptions, TransformerOption, TransformerVideoOption, CloudConfig, Rotation } from './types/CldOptions'
+export type { CldOptions, TransformerOption, TransformerVideoOption, CloudConfig } from './types/CldOptions'
+export type { Resize, ResizeType, Border, CustomFunction, Position, Effect, Rotation, Flag, Offset, Radius, Gravity  } from './types/transformation'
 export type { ResourceType } from './types/ResourceType'
 export type { StorageType } from './types/StorageType'
-export type { ResizeType, Resize } from './transformers/resize'
-export type { Border } from './transformers/border'
-export type { CustomFunction } from './transformers/customFunc'
-export type { Position } from './transformers/position'
-export type { Effect } from './transformers/effect'
 
 export default buildUrl

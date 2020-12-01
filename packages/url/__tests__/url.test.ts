@@ -174,7 +174,9 @@ describe('Url', () => {
           aspectRatio: '16:9',
         },
         chaining: [{
-          effect: 'grayscale'
+          effect: {
+            name: 'grayscale'
+          },
         }]
       })).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_500,h_500,ar_16:9,q_auto,f_auto/e_grayscale/example')
     })
