@@ -78,7 +78,7 @@ export const transform = (options):Transformation => {
   return transformations.filter(Boolean)
 }
 
-export const toTransformationStr = (transformations: Transformation) => transformations.reduce((str: string, transformation: string | string[]):string => {
+export const toTransformationStr = (transformations: Transformation):string => transformations.reduce<string>((str: string, transformation: string | string[]):string => {
     const isChained = Array.isArray(transformation)
     const separation = isChained ? '/' : ','
 

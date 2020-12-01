@@ -1,33 +1,37 @@
-export const condition = ():string => {
-  // if(value = "") {
-  //   var i, ifVal, j, ref, trIf, trRest;
-  //   switch (value) {
-  //     case "else":
-  //       this.chain();
-  //       return this.param(value, "if", "if");
-  //     case "end":
-  //       this.chain();
-  //       for (i = j = ref = this.chained.length - 1; j >= 0; i = j += -1) {
-  //         ifVal = this.chained[i].getValue("if");
-  //         if (ifVal === "end") {
-  //           break;
-  //         } else if (ifVal != null) {
-  //           trIf = Transformation.new().if(ifVal);
-  //           this.chained[i].remove("if");
-  //           trRest = this.chained[i];
-  //           this.chained[i] = Transformation.new().transformation([trIf, trRest]);
-  //           if (ifVal !== "else") {
-  //             break;
-  //           }
-  //         }
-  //       }
-  //       return this.param(value, "if", "if");
-  //     case "":
-  //       return Condition.new().setParent(this);
-  //     default:
-  //       return this.param(value, "if", "if", function (value) {
-  //         return Condition.new(value).toString();
-  //       });
-  //   }
-  return ''
+import transform, { toTransformationStr } from ".";
+import { ConditionalParams, ConditionOperators } from "../constants/condition";
+import { Condition, ConditionExpression, Expression } from "../types/transformation/Condition";
+import { toString } from "../utils";
+
+export const computeCondition = (conditionObj: ConditionExpression): { expression: string, transformations: string } => {
+  const expression = conditionObj.expression ? toString(conditionObj.expression.map(exp => computeConditionExpression(exp)), '_and_') : ''
+
+  const transformations = conditionObj.transformations.map(transformation => toTransformationStr(transform(transformation)))
+
+  return {
+    expression,
+    transformations: toString(transformations, '/')
+  }
+}
+
+export const mapCharacteristic = (expression: string) => ConditionalParams[expression] || expression
+
+export const computeConditionExpression = (expression: Expression) => {
+  const characteristic = Array.isArray(expression.characteristic) ? toString((expression.characteristic as string[]).map(mapCharacteristic)) : mapCharacteristic(expression.characteristic as string)  
+  const operator = ConditionOperators[expression.operator]
+  const value = isNaN(expression.value as number) ? `!${expression.value}!` : expression.value
+
+  return toString([characteristic, operator, value], '_')
+}
+
+export const condition = (conditionObj?: Condition):string | string[] => {
+  if (!conditionObj || !conditionObj.if || !conditionObj.if.expression) return ''
+
+  const ifCondition = computeCondition(conditionObj.if)
+  const elseCondition = conditionObj.else ? computeCondition(conditionObj.else) : null
+
+  const formattedIf = toString([`if_${ifCondition.expression}`, ifCondition.transformations ], '/')
+  const formattedElse = elseCondition ? toString(['if_else', elseCondition.transformations], '/') : ''
+
+  return [ toString([formattedIf, formattedElse, 'if_end'], '/') ]
 }

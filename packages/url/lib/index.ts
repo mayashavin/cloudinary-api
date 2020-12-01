@@ -44,7 +44,7 @@ const Transformer:TransformerType = { transform, toString: toTransformationStr }
 export { RESOURCE_TYPES, extractPublicId, STORAGE_TYPES, ROTATION_MODES, Transformer }
 
 export type { CldOptions, TransformerOption, TransformerVideoOption, CloudConfig } from './types/CldOptions'
-export type { Resize, ResizeType, Border, CustomFunction, Position, Effect, Rotation, Flag, Offset, Radius, Gravity  } from './types/transformation'
+export type { Resize, ResizeType, Border, CustomFunction, Position, Effect, Rotation, Flag, Offset, Radius, Gravity, StringValue, Variable, Expression, Condition, ConditionExpression  } from './types/transformation'
 export type { ResourceType } from './types/ResourceType'
 export type { StorageType } from './types/StorageType'
 

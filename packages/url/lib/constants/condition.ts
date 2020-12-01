@@ -1,4 +1,4 @@
-export const IMAGE_CONDITIONAL_OPERATORS = {
+export const ConditionOperators = {
   equal: "eq",
   notEqual: "ne",
   lessThan: "lt",
@@ -6,10 +6,10 @@ export const IMAGE_CONDITIONAL_OPERATORS = {
   lessOrEqual: "lte",
   greaterOrEqual: "gte",
   include: "in",
-  notInclude: "nin"
+  notInclude: "nin",
 } as const
 
-export const IMAGE_CONDITIONAL_FIELDS = {
+export const ConditionalParams = {
   width: 'w',
   initialWidth: 'iw',
   height: 'h',
