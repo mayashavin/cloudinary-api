@@ -20,7 +20,9 @@
     "compile": "tsc -p tsconfig.build.json && tsc -p tsconfig.json",
     "test:unit": "jest __tests__ --reporters default",
     "tsc": "tsc -p tsconfig.build.json && tsc -p tsconfig.json",
-    "prepublishOnly": "agadoo dist/"
+    "bundlewatch": "bundlewatch --config bundlewatch.config.json",
+    "prepublishOnly": "agadoo && bundlewatch",
+    "agadoo": "agadoo dist/"
   },
   "keywords": [
     "cloudinary",
@@ -37,6 +39,8 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.7",
     "agadoo": "^2.0.0",
+    "bundlewatch": "^0.3.1",
+    "husky": "^4.3.0",
     "jest": "^26.6.3",
     "jest-html-reporters": "^2.1.0",
     "ts-jest": "^26.4.4",

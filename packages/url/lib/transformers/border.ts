@@ -1,15 +1,9 @@
-type BorderType = 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset' | 'outset'
-
-export interface Border {
-  width: number | string,
-  type?: BorderType,
-  color?: string
-}
+import { Border } from '../types/transformation/Border'
+import { convert } from './expression'
 
 export const border = ({ type = 'solid', color = 'black', width }: Border) => {
-  if (width) {
-    return `bo_${width}px_${type}_${color}`
-  }
+  if (!width) return ''
 
-  return ''
+  const formattedValue = isNaN(width as number) ? convert(width as string) : `${width}px`
+  return `bo_${formattedValue}_${type}_${color}`
 }

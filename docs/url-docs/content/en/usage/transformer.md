@@ -30,7 +30,9 @@ const transArr = Transformer.transform({
   },
   gravity: 'auto',
   chaining: [{
-    effect: 'grayscale'
+    effect: {
+      name: 'grayscale'
+    }
   }]
 })
 

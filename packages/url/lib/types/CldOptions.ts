@@ -1,12 +1,18 @@
 import { ResourceType } from "./ResourceType";
 import { StorageType } from "./StorageType";
-import { Resize } from '../transformers/resize'
-import { Border } from '../transformers/border'
-import { CustomFunction } from '../transformers/customFunc'
-import { Offset } from '../transformers/video/offset'
-import { Position } from '../transformers/position'
-import { Effect } from '../transformers/effect'
-import { ROTATION_MODES } from '../constants'
+import { Resize } from './transformation/Resize'
+import { Border } from './transformation/Border'
+import { CustomFunction } from './transformation/CustomFunc'
+import { Offset } from './transformation/Offset'
+import { Position } from './transformation/Position'
+import { Effect, VEffect } from './transformation/Effect'
+import { ROTATION_MODES } from '../constants/rotation'
+import { Gravity } from "./transformation/Gravity";
+import { Variable } from "./transformation/Variable";
+import { Condition } from "./transformation/Condition";
+import { VFlag } from "./transformation/Flag";
+import { ColorSpace, VColorSpace } from "./transformation/ColorSpace";
+import { AudioCodec, FPS } from "./transformation";
 
 export type Radius = number | string
 
@@ -38,55 +44,59 @@ export interface CloudConfig {
   forceVersion?: boolean
 }
 
-export interface TransformerOption {
-  rotation?: Rotation,
+export type TransformerBaseOptions = {
+  resize?: Resize,
+  gravity?: Gravity,
   background?: string,
+  overlay?: string,
+  colorSpace?: ColorSpace | VColorSpace,
+  format?: string,
+  quality?: string | number,
+  rotate?: Rotation,
+  radius?: Radius,
+  dpr?: string | number,
+  fetchFormat?: string,
+}
+
+export interface TransformerOption extends TransformerBaseOptions {
   border?: Border | string,
+  flags?: Flag,
   effect?: Effect,
   color?: string,
-  resize?: Resize,
-  colorSpace?: string,
   customFunction?: CustomFunction,
   defaultImage?: string,
-  delay?: number,
   density?: number,
-  dpr?: string | number,
-  else?: string,
-  endIf?: string,
-  format?: string,
-  fetchFormat?: string,
-  gravity?: string,
-  if?: string,
-  flags?: Flag,
-  opacity?: number,
-  overlay?: string,
+  condition?: Condition,
+  opacity?: number | string,
   page?: string,
   prefix?: string,
-  quality?: string,
-  radius?: Radius,
   rawTransformation?: string,
   transformation?: string,
   chaining?: TransformerOption[],
   underlay?: string,
-  variable?: string,
-  variables?: string,
+  variables?: Variable | Variable[],
   position?: Position,
-  zoom?: number
+  zoom?: number | string
 }
 
-export interface TransformerVideoOption extends TransformerOption{
-  audioCodec?: string,
-  audioFrequency?:string,
-  bitRate?: string | number,
-  fps?: string,
-  keyframeInterval?: string,
-  offset?: Offset
-  poster?: string,
-  sourceTypes?: string[],
+export interface TransformerVideoOption extends VideoSettings, AudioSettings, TransformerBaseOptions {
+  offset?: Offset,
+  videoSampling?: string | number,
+  chaining?: TransformerVideoOption[],
+  delay?: number,
+  flags?: VFlag,
+  effect?: VEffect
+}
+
+export type VideoSettings = {
   videoCodec?: string,
-  duration?: string | number,
-  videoSampling?: string
-  fallbackContent?: string,
-  ocr?: string,
+  fps?: FPS,
+  streamingProfile?: string,
+  bitRate?: string | number,
+  keyframeInterval?: number,
 }
 
+export type AudioSettings = {
+  audioCodec?: AudioCodec,
+  audioFrequency?:string | number,
+}

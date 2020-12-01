@@ -1,14 +1,13 @@
 import { RESOURCE_TYPES, STORAGE_TYPES, ROTATION_MODES } from './constants'
 import { CldOptions, CloudConfig } from './types/CldOptions'
 import { url, extractPublicId } from './url'
-
 import { transform, toTransformationStr } from './transformers'
 
 let config = {}
 
 export const getConfig = () => Object.freeze(config)
 
-export const setConfig = (options:CloudConfig) => config = {
+export const setConfig = (options: CloudConfig) => config = {
   ...config,
   ...options
 } 
@@ -43,13 +42,32 @@ const Transformer:TransformerType = { transform, toString: toTransformationStr }
 
 export { RESOURCE_TYPES, extractPublicId, STORAGE_TYPES, ROTATION_MODES, Transformer }
 
-export type { CldOptions, TransformerOption, TransformerVideoOption, CloudConfig, Rotation } from './types/CldOptions'
+export type { CldOptions, TransformerOption, TransformerVideoOption, CloudConfig } from './types/CldOptions'
+export type { 
+  Resize, 
+  ResizeType, 
+  Border, 
+  CustomFunction, 
+  Position, 
+  Effect,
+  VEffect, 
+  Rotation, 
+  Flag, 
+  VFlag,
+  Offset, 
+  Radius, 
+  Gravity, 
+  StringValue, 
+  Variable, 
+  Expression, 
+  Condition,
+  ConditionExpression, 
+  ColorSpace, 
+  VColorSpace,
+  AudioCodec,
+  FPS,
+} from './types/transformation'
 export type { ResourceType } from './types/ResourceType'
 export type { StorageType } from './types/StorageType'
-export type { ResizeType, Resize } from './transformers/resize'
-export type { Border } from './transformers/border'
-export type { CustomFunction } from './transformers/customFunc'
-export type { Position } from './transformers/position'
-export type { Effect } from './transformers/effect'
 
 export default buildUrl

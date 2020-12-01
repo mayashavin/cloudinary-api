@@ -1,12 +1,9 @@
-
-export interface Position{
-  x?: number,
-  y?: number
-}
+import { Position } from '../types/transformation/Position'
+import { formatValue } from './expression'
 
 export const position = ({ x, y }: Position) => {
-  const xAxis = x ? `x_${x}` : ''
-  const yAxis = y ? `y_${y}` : ''
+  const xAxis = x ? `x_${formatValue(x)}` : ''
+  const yAxis = y ? `y_${formatValue(y)}` : ''
 
   return [xAxis, yAxis].filter(Boolean).join()
 }

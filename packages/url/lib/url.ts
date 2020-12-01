@@ -39,7 +39,7 @@ export const getVersion = (publicId: string, { forceVersion = false, version = 1
 export const getSubDomain = (publicId: string, { cdnSubdomain = false, cname } : { cdnSubdomain?: boolean, cname?: string }) => {
   if (!cname) return `res${cdnSubdomain ? `-${publicId}` : ''}`
 
-  return cdnSubdomain ? `` : ''
+  return cdnSubdomain ? `a${publicId}.` : ''
 }
 
 export const getPrefix = (publicId: string, { 

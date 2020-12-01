@@ -1,4 +1,5 @@
-import { url, getPrefix, getPathToAsset, getVersion, getSignature, extractPublicId } from '../lib/url'
+import { SEO_TYPES, STORAGE_TYPES } from '../lib/constants'
+import { url, getPrefix, getPathToAsset, getVersion, getSignature, extractPublicId, getSubDomain, getResourceType } from '../lib/url'
 
 describe('Url', () => {
   describe('getPrefix()', () => {
@@ -119,6 +120,11 @@ describe('Url', () => {
   })
 
   describe('url()', () => {
+    it('should throw error if no cloudname', () => {
+      expect(() => {
+        url('123')
+      }).toThrow('cloudName is required!')
+    });
     it('should return delivery url', () => {
       expect(url('example', {
         cloudName: 'demo',
@@ -174,7 +180,9 @@ describe('Url', () => {
           aspectRatio: '16:9',
         },
         chaining: [{
-          effect: 'grayscale'
+          effect: {
+            name: 'grayscale'
+          },
         }]
       })).toBe('https://res.cloudinary.com/demo/image/upload/c_scale,w_500,h_500,ar_16:9,q_auto,f_auto/e_grayscale/example')
     })
@@ -205,4 +213,58 @@ describe('Url', () => {
       expect(extractPublicId('example')).toEqual('example')
     })
   })
+
+  describe('getSubDomain', () => {
+    it('should return empty string if no cname', () => {
+      expect(getSubDomain('abc', {})).toBe('res')
+    });
+
+    it('should return res subdomain if cdnSubdomain but no cname', () => {
+      expect(getSubDomain('abe', { cdnSubdomain: true })).toBe('res-abe')
+    });
+
+    it('should return a subdomain if cname', () => {
+      expect(getSubDomain('abe', { cname: 'a', cdnSubdomain: true })).toBe('aabe.')
+    });
+  });
+
+  describe('getResourceType', () => {
+    it('should return shortern root path', () => {
+      expect(getResourceType({
+        shortern: true,
+        useRootPath: true
+      })).toBe('iu')
+    });
+
+    it('should return empty string if not shortern but use root path', () => {
+      expect(getResourceType({
+        shortern: false,
+        useRootPath: true
+      })).toBe('')
+    });
+
+    it('should throw error if use root path for not supported type', () => {
+      expect(() => {
+        getResourceType({
+          storageType: STORAGE_TYPES.AUTHENTICATED,
+          useRootPath: true
+        })
+      }).toThrow('Root path only supported for image/upload')
+    });
+
+    it('should return url suffix', () => {
+      expect(getResourceType({
+        urlSuffix: 'h'
+      })).toBe(SEO_TYPES["image/upload"])
+    });
+
+    it('should throw error if not found seo', () => {
+      expect(() => {
+        getResourceType({
+          storageType: STORAGE_TYPES.FACEBOOK,
+          urlSuffix: 'h'
+        })
+      }).toThrow(`URL Suffix only supported for ${Object.keys(SEO_TYPES).join(', ')}`)
+    });
+  });
 })

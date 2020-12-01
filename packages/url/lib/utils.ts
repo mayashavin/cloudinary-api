@@ -1,0 +1,1 @@
+ export const toString = (arr:any[], separation:string = ':') => arr.filter(Boolean).join(separation)

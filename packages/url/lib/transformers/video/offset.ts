@@ -1,15 +1,15 @@
 export interface Offset {
-  start?: string,
-  end?: string,
+  start?: string | number,
+  end?: string | number,
+  duration?: string | number
 }
 
-export const offset = () => {
-  // var end_o, start_o;
-  //   [start_o, end_o] = (isFunction(value != null ? value.split : void 0)) ? value.split('..') : isArray(value) ? value : [null, null];
-  //   if (start_o != null) {
-  //     this.startOffset(start_o);
-  //   }
-  //   if (end_o != null) {
-  //     return this.endOffset(end_o);
-  //   }
+export const offset = (obj?: Offset) => {
+  if (!obj) return ''
+
+  const start = obj.start ? `so_${obj.start}` : ''
+  const end = obj.end ? `eo_${obj.end}` : ''
+  const duration = obj.duration ? `du_${obj.duration}` : ''
+
+  return [start, end, duration].filter(Boolean).join(',')
 }
