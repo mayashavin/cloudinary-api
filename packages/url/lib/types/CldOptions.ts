@@ -12,6 +12,7 @@ import { Variable } from "./transformation/Variable";
 import { Condition } from "./transformation/Condition";
 import { VFlag } from "./transformation/Flag";
 import { ColorSpace, VColorSpace } from "./transformation/ColorSpace";
+import { AudioCodec, FPS } from "./transformation";
 
 export type Radius = number | string
 
@@ -80,7 +81,7 @@ export interface TransformerOption extends TransformerBaseOptions {
 
 export interface TransformerVideoOption extends VideoSettings, AudioSettings, TransformerBaseOptions {
   offset?: Offset,
-  videoSampling?: string
+  videoSampling?: string | number,
   chaining?: TransformerVideoOption[],
   delay?: number,
   flags?: VFlag,
@@ -89,13 +90,13 @@ export interface TransformerVideoOption extends VideoSettings, AudioSettings, Tr
 
 export type VideoSettings = {
   videoCodec?: string,
-  fps?: string,
+  fps?: FPS,
   streamingProfile?: string,
   bitRate?: string | number,
-  keyframeInterval?: string,
+  keyframeInterval?: number,
 }
 
 export type AudioSettings = {
-  audioCodec?: string,
-  audioFrequency?:string,
+  audioCodec?: AudioCodec,
+  audioFrequency?:string | number,
 }

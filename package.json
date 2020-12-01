@@ -26,7 +26,8 @@
     "prettier": "yarn prettier --write .",
     "changelog": "node scripts/changelog.js",
     "test:url": "npm --prefix packages/url run test:unit",
-    "bundlewatch:url": "npm --prefix packages/url run bundlewatch"
+    "bundlewatch:url": "npm --prefix packages/url run bundlewatch",
+    "doc-dev:url": "npm --prefix docs/url-docs run dev"
   },
   "author": "Maya Shavin <dpnminh@gmail.com>",
   "license": "MIT",
