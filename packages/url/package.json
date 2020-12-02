@@ -1,6 +1,6 @@
 {
   "name": "cloudinary-build-url",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Lighter Url generator for Cloudinary",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "test:unit": "jest __tests__ --reporters default",
     "tsc": "tsc -p tsconfig.build.json && tsc -p tsconfig.json",
     "bundlewatch": "bundlewatch --config bundlewatch.config.json",
-    "prepublishOnly": "agadoo && bundlewatch",
+    "prepublishOnly": "yarn build && yarn agadoo && yarn bundlewatch",
     "agadoo": "agadoo dist/"
   },
   "keywords": [
