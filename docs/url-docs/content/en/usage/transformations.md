@@ -248,6 +248,8 @@ const url = buildImageUrl("example", {
 
 - Type: `String`
 
+.**Deprecated in 0.1.0. Please use `condition` instead.**
+
 Apply the transformation only if a condition is met.
 
 ```js
@@ -266,9 +268,56 @@ const url = buildImageUrl("example", {
 });
 ```
 
+### `condition`
+
+<badge>v0.1.0+</badge>
+
+- Type: `Condition`
+  * `if` - `required`
+    * Type: `ConditionExpression`
+      - `expression` - `Expression[]`
+        - `characteristic` - A string or array of strings with image characteristics
+        - `operator` - Conditional operators ()
+        - `value` - Value of the expression (`String` or `Number`)
+      - `transformations` - `TransformerOption[]`
+        - A set of transformations to apply when condition is met.
+        - `Required`
+  * `else`
+    * `transformations` - `TransformerOption[]`
+      - A set of transformations to apply when condition is met.
+      - `Required`
+
+Apply the transformation only if a condition is met.
+
+```js
+import { buildImageUrl } from "cloudinary-build-url";
+
+const url = buildImageUrl("example", {
+  cloud: {
+    cloudName: "demo",
+  },
+  transformations: {
+    condition: {
+      if: {
+        expression: {
+          characteristic: "width",
+          operator: "greaterThan",
+          value: 300
+        },
+        transformations: [{
+          effect: {
+            name: "e_oil_paint",
+          }
+        }]
+      }
+    },
+  },
+});
+```
+
 ### `flags`
 
-<badge>0.1.0</badge>
+<badge>v0.1.0+</badge>
 
 - Type: `Flag` | `VFlag` (video)
 

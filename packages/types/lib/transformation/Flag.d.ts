@@ -1,4 +1,4 @@
-import { Flags, VFlags } from '../../constants/flag'
+import { Flags, VFlags } from '@cld-apis/utils'
 
 export type FlagType = typeof Flags[keyof typeof Flags]
 

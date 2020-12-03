@@ -1,8 +1,8 @@
-import { Formats, ValueAssignable } from "../../constants/variable";
+import { VariableFormats, ValueAssignable } from "@cld-apis/utils";
 
 export type StringValue = {
   expression: string | string[],
-  formatAs?: keyof typeof Formats
+  formatAs?: keyof typeof VariableFormats
 }
 
 export type Variable = {

@@ -5,8 +5,8 @@ import { position } from '../lib/transformers/position'
 import { effect } from '../lib/transformers/effect'
 import { flags } from '../lib/transformers/flags'
 import { convert } from '../lib/transformers/expression'
-import { TransformerVideoOption } from '../lib/types/CldOptions'
-import { Brightness } from '../lib/constants/effects'
+import { TransformerVideoOption } from '@cld-apis/types'
+import { Brightness } from '@cld-apis/utils'
 
 describe('Modifiers', () => {
   describe('transform()', () => {

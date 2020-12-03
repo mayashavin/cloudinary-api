@@ -1,4 +1,4 @@
-import { RESOURCE_TYPES } from "../constants";
+import { RESOURCE_TYPES } from "@cld-apis/utils";
 
 type ResourceTypeKeys = keyof typeof RESOURCE_TYPES
 

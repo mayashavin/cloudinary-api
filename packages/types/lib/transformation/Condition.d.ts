@@ -1,5 +1,5 @@
-import { ConditionOperators } from '../../constants/condition'
-import { TransformerOption } from '../CldOptions'
+import { ConditionOperators } from '@cld-apis/utils'
+import { TransformerOption } from '../options/TransformerOption'
 
 export type Expression = {
   characteristic: string | string[],

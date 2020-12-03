@@ -8,7 +8,7 @@ import {
   Contrast,
   PixelateEffects,
   VideoEffects
-} from '../../constants/effects'
+} from '@cld-apis/utils'
 
 export type BrightnessEffect = typeof Brightness[keyof typeof Brightness]
 export type BlurEffect = typeof BlurEffects[keyof typeof BlurEffects]

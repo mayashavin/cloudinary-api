@@ -1,4 +1,4 @@
-import { RESIZE_TYPES } from '../../constants/resize'
+import { RESIZE_TYPES } from '@cld-apis/utils'
 
 export type ResizeType = number | typeof RESIZE_TYPES[keyof typeof RESIZE_TYPES]
 

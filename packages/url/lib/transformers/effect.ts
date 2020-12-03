@@ -1,4 +1,4 @@
-import { Effect, VEffect } from '../types/transformation/Effect'
+import { Effect, VEffect } from '@cld-apis/types'
 import { toString } from '../utils'
 
 export const effect = (obj: Effect | VEffect):string => {

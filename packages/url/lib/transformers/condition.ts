@@ -1,6 +1,7 @@
 import transform, { toTransformationStr } from ".";
-import { ConditionalParams, ConditionOperators } from "../constants/condition";
-import { Condition, ConditionExpression, Expression } from "../types/transformation/Condition";
+import { ConditionOperators } from "@cld-apis/utils";
+import { ConditionalParams } from '../constants/condition'
+import { Condition, ConditionExpression, Expression } from "@cld-apis/types";
 import { toString } from "../utils";
 
 export const computeCondition = (conditionObj: ConditionExpression): { expression: string, transformations: string } => {

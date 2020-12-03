@@ -43,6 +43,8 @@ export const PredefinedVariables = {
   tags: 'tags',
 } as const
 
+export const Prefix = '$' as const
+
 export const PreDefinedPatterns = `(${Object.keys(PredefinedVariables).join('|')})`
 
 export const AcceptNumbericVars = ['quality', 'if', 'rotate', 'zoom', 'opacity', 'radius', 'effect', 'dpr']

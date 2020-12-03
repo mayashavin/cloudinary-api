@@ -1,7 +1,6 @@
-import { RESOURCE_TYPES, SEO_TYPES, STORAGE_TYPES } from "./constants"
-import { CloudConfig, TransformerOption, TransformerVideoOption } from './types/CldOptions'
-import { ResourceType } from "./types/ResourceType"
-import { StorageType } from "./types/StorageType"
+import { SEO_TYPES } from "./constants"
+import { RESOURCE_TYPES, STORAGE_TYPES } from '@cld-apis/utils'
+import { CloudConfig, TransformerOption, TransformerVideoOption, ResourceType, StorageType } from '@cld-apis/types'
 
 const SHARED_CDNS:string[] = ["cloudinary-a.akamaihd.net", "res.cloudinary.com"]
 

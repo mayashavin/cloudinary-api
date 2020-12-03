@@ -1,8 +1,4 @@
-export interface Offset {
-  start?: string | number,
-  end?: string | number,
-  duration?: string | number
-}
+import { Offset } from '@cld-apis/types'
 
 export const offset = (obj?: Offset) => {
   if (!obj) return ''

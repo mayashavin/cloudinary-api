@@ -1,3 +1,4 @@
+import { Transformation } from '@cld-apis/types'
 import { TRANSFORMERS } from '../constants'
 import { AcceptNumbericVars } from '../constants/arithmetic'
 import { condition } from './condition'
@@ -8,8 +9,6 @@ import { rawTransformation } from './rawTransformation'
 import { variables } from './variables'
 import { fps } from './video/fps'
 import { offset } from './video/offset'
-
-export type Transformation = Array<string | string[]>
 
 export const getResize = (options):string => {
   const hasResize = options.resize || options.width || options.height || options.aspectRatio

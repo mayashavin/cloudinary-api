@@ -1,0 +1,31 @@
+{
+  "name": "@cld-apis/types",
+  "version": "0.1.0",
+  "description": "Cloudinary TypeScript types",
+  "author": "Maya Shavin <maya@cloudinary.com>",
+  "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/types#readme",
+  "license": "MIT",
+  "types": "lib/index",
+  "files": [
+    "**/*.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git"
+  },
+  "scripts": {
+    "bundlewatch": "bundlewatch --config bundlewatch.config.json",
+    "prepublishOnly": "yarn agadoo && yarn bundlewatch",
+    "agadoo": "agadoo dist/"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.10",
+    "@cld-apis/utils": "^0.1.0",
+    "agadoo": "^2.0.0",
+    "bundlewatch": "^0.3.1",
+    "husky": "^4.3.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,5 +1,4 @@
-import { buildImageUrl, buildUrl, buildVideoUrl, extractPublicId, getConfig, RESOURCE_TYPES, setConfig, Transformer } from '../lib/index'
-import { RESOURCE_TYPES as OriginalResourceTypes, STORAGE_TYPES as OriginalStorageTypes, ROTATION_MODES as OriginalRotationModes, STORAGE_TYPES, ROTATION_MODES } from '../lib/constants'
+import { buildImageUrl, buildUrl, buildVideoUrl, extractPublicId, getConfig, setConfig, Transformer } from '../lib/index'
 import { extractPublicId as originalExtractPublicId } from '../lib/url'
 import { transform, toTransformationStr } from '../lib/transformers'
 
@@ -124,20 +123,8 @@ describe('General tests', () => {
   });
 
   describe('exports', () => {
-    it('should export resourceTypes', () => {
-      expect(RESOURCE_TYPES).toEqual(OriginalResourceTypes)
-    });
-
     it('should export extractPublicId', () => {
-      expect(extractPublicId).toEqual(extractPublicId)
-    });
-
-    it('should export STORAGE_TYPES', () => {
-      expect(STORAGE_TYPES).toEqual(OriginalStorageTypes)
-    });
-
-    it('should export ROTATION_MODES', () => {
-      expect(ROTATION_MODES).toEqual(OriginalRotationModes)
+      expect(extractPublicId).toEqual(originalExtractPublicId)
     });
 
     it('should export transform', () => {
@@ -148,4 +135,5 @@ describe('General tests', () => {
       expect(Transformer.toString).toEqual(toTransformationStr)
     });
   });
+
 })

@@ -1,4 +1,4 @@
-import { Resize } from "../types/transformation/Resize"
+import { Resize } from "@cld-apis/types"
 import { formatValue } from "./expression"
 
 
