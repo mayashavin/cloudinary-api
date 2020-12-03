@@ -1,8 +1,8 @@
-import { Asset } from "./types/Asset";
+import { Asset } from "@cld-apis/types";
 import { buildApiUrl, createSignature, toRequestParamString } from "./utils";
 import fetch from 'node-fetch'
 
-export const upload = async (file, cloudConfig, assetConfig):Asset | void => {
+export const upload = async (file, cloudConfig, assetConfig):Promise<Asset | void> => {
   const urlPrefix = buildApiUrl(cloudConfig.cloudName, assetConfig.resourceType)
   const snakeCase = require('lodash.snakecase')
   const options = snakeCase({
@@ -28,3 +28,7 @@ export const upload = async (file, cloudConfig, assetConfig):Asset | void => {
 
   return result
 }
+
+//1. Client uploader
+//2. Node uploader
+//3. CLI uploader

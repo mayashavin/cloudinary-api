@@ -42,13 +42,16 @@
     "url": "https://github.com/mayashavin/cloudinary-api/issues"
   },
   "dependencies": {
-    "@types/jest": "^26.0.15",
     "crypto-js": "^4.0.0",
     "lodash.snakecase": "^4.1.1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.15",
     "husky": "^4.3.0",
     "mockdate": "^3.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,5 +1,6 @@
-import { RESOURCE_TYPES, UPLOAD_PREFIX } from "../constants"
-import { ResourceType } from "../types/Asset"
+import { RESOURCE_TYPES } from "@cld-apis/utils"
+import { UPLOAD_PREFIX, UploadResourceTypes, UploadResourceType } from '../constants'
+
 const EXCEPTIONS = ['file', 'cloudName', 'resourceType', 'apiKey', 'signature']
 
 export const clearBlank = () => {}
@@ -29,7 +30,7 @@ export const createSignature = (params: string = '', apiSecret: string = '') => 
   return '' + sha256(computed)
 }
 
-export const buildApiUrl = (cloudName: string, resourceType: ResourceType = RESOURCE_TYPES.AUTO) => {
+export const buildApiUrl = (cloudName: string, resourceType: UploadResourceType = UploadResourceTypes.AUTO) => {
   if (!cloudName) throw Error('cloudName is required for uploading')
 
   return `${UPLOAD_PREFIX}/v1_1/${cloudName}/${resourceType}/upload`

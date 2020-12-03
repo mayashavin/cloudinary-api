@@ -1,16 +1,10 @@
-export const UPLOAD_PREFIX = "https://api.cloudinary.com";
+import { RESOURCE_TYPES } from "@cld-apis/utils"
 
-export const STORAGE_TYPES = {
-  UPLOAD: 'upload',
-  FETCH: 'fetch',
-  PRIVATE: 'private',
-  AUTHENTICATED: 'authenticated',
-  MULTI: 'multi',
-}
+export const UPLOAD_PREFIX = "https://api.cloudinary.com" as const
 
-export const RESOURCE_TYPES = {
-  IMAGE: 'image',
-  VIDEO: 'video',
-  RAW: 'raw',
+export const UploadResourceTypes = {
+  ...RESOURCE_TYPES,
   AUTO: 'auto'
-}
+} as const
+
+export type UploadResourceType = typeof UploadResourceTypes[keyof typeof UploadResourceTypes]
