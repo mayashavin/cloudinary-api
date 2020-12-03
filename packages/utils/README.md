@@ -1,11 +1,3 @@
-# `constants`
+# `@cld-apis/utils`
 
-> TODO: description
-
-## Usage
-
-```
-const constants = require('constants');
-
-// TODO: DEMONSTRATE API
-```
+> Constants and helpers function for Cloudinary API

@@ -1,0 +1,8 @@
+{
+  "files": [
+    {
+      "path": "lib/**/*.d.ts",
+      "maxSize": "2kB"
+    }
+  ]
+}
