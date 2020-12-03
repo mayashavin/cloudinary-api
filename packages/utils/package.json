@@ -1,0 +1,61 @@
+{
+  "name": "@cld-apis/utils",
+  "version": "0.1.0",
+  "description": "Cloudinary constants",
+  "author": "Maya Shavin <maya@cloudinary.com>",
+  "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/constants#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mayashavin/cloudinary-api/issues"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json && tsc -p tsconfig.json",
+    "test:unit": "jest __tests__ --reporters default",
+    "tsc": "tsc -p tsconfig.build.json && tsc -p tsconfig.json",
+    "bundlewatch": "bundlewatch --config bundlewatch.config.json",
+    "prepublishOnly": "yarn build && yarn agadoo && yarn bundlewatch",
+    "agadoo": "agadoo dist/"
+  },
+  "keywords": [
+    "cloudinary",
+    "cloudinary-url",
+    "url",
+    "video",
+    "image",
+    "optimization",
+    "api",
+    "light",
+    "typescript"
+  ],
+  "devDependencies": {
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.10",
+    "agadoo": "^2.0.0",
+    "bundlewatch": "^0.3.1",
+    "husky": "^4.3.0",
+    "jest": "^26.6.3",
+    "jest-html-reporters": "^2.1.0",
+    "ts-jest": "^26.4.4",
+    "typescript": "^4.0.5",
+    "@cld-apis/types": "^0.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
