@@ -1,5 +1,5 @@
 {
-  "name": "cloudinary-media-uploader",
+  "name": "cloudinary-upload-api",
   "version": "0.0.0",
   "description": "Uploader for Cloudinary images and videos",
   "keywords": [
@@ -32,12 +32,23 @@
     "url": "git+https://github.com/mayashavin/cloudinary-api.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "test:unit": "jest __tests__ --reporters default",
+    "tsc": "tsc"
   },
   "bugs": {
     "url": "https://github.com/mayashavin/cloudinary-api/issues"
   },
   "dependencies": {
-    "@types/jest": "^26.0.15"
+    "@types/jest": "^26.0.15",
+    "crypto-js": "^4.0.0",
+    "lodash.snakecase": "^4.1.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "mockdate": "^3.0.2"
   }
 }
