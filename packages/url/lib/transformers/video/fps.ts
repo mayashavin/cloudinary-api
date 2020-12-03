@@ -1,4 +1,4 @@
-import { FPS, FPSType } from "../../types/transformation/Fps"
+import { FPS, FPSType } from "@cld-apis/types"
 import { toString } from "../../utils"
 
 export const fps = (value?: FPS):string => {

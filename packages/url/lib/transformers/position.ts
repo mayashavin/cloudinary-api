@@ -1,4 +1,4 @@
-import { Position } from '../types/transformation/Position'
+import { Position } from '@cld-apis/types'
 import { formatValue } from './expression'
 
 export const position = ({ x, y }: Position) => {

@@ -1,4 +1,5 @@
-import { SEO_TYPES, STORAGE_TYPES } from '../lib/constants'
+import { SEO_TYPES } from '../lib/constants'
+import { STORAGE_TYPES } from '@cld-apis/utils'
 import { url, getPrefix, getPathToAsset, getVersion, getSignature, extractPublicId, getSubDomain, getResourceType } from '../lib/url'
 
 describe('Url', () => {

@@ -1,4 +1,4 @@
-import type { CustomFunction } from '../types/transformation/CustomFunc'
+import type { CustomFunction } from '@cld-apis/types'
 
 export const customFunction = ({ type, source }: CustomFunction) => {
   if (!type || !source) return ''

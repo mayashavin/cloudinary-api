@@ -1,4 +1,4 @@
-import { Border } from '../types/transformation/Border'
+import { Border } from '@cld-apis/types'
 import { convert } from './expression'
 
 export const border = ({ type = 'solid', color = 'black', width }: Border) => {

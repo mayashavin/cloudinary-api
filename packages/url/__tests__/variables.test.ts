@@ -1,5 +1,5 @@
 import { computeVariable, variables } from '../lib/transformers/variables'
-import { StringValue, Variable } from '../lib/types/transformation/Variable';
+import { Variable } from '@cld-apis/types';
 
 describe('computeVariable()', () => {
   it('should return formatted str with number input', () => {
