@@ -8,6 +8,7 @@ features:
   - Auto detect optimized format for images and videos per browser.
   - Built-in optimization on quality per device resolution.
   - Dynamically fetch and transform images and videos from remote sources
+  - TypeScript supported
 ---
 
 The lighter [Cloudinary](https://cloudinary.com/) URL builder for images and videos, written in TypeScript.
