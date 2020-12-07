@@ -44,8 +44,8 @@ Maintained by [Maya Shavin](https://github.com/mayashavin)
 [npm-downloads-src]: https://img.shields.io/npm/dt/cloudinary-build-url.svg
 [npm-downloads-href]: https://npmjs.com/package/cloudinary-build-url
 
-[codecov-src]: https://img.shields.io/codecov/c/github/mayashavin/cloudinary-build-url.svg
-[codecov-href]: https://codecov.io/gh/mayashavin/cloudinary-build-url
+[codecov-src]: https://codecov.io/gh/mayashavin/cloudinary-api/branch/main/graph/badge.svg?token=S8V8GIDYPC
+[codecov-href]: https://codecov.io/gh/mayashavin/cloudinary-api
 
 [license-src]: https://img.shields.io/npm/l/cloudinary-build-url.svg
 [license-href]: https://npmjs.com/package/cloudinary-build-url
