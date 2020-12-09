@@ -44,6 +44,7 @@
     "typescript"
   ],
   "devDependencies": {
+    "@cld-apis/types": "^0.1.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.10",
     "agadoo": "^2.0.0",
@@ -52,10 +53,12 @@
     "jest": "^26.6.3",
     "jest-html-reporters": "^2.1.0",
     "ts-jest": "^26.4.4",
-    "typescript": "^4.0.5",
-    "@cld-apis/types": "^0.1.0"
+    "typescript": "^4.0.5"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "lodash.snakecase": "^4.1.1"
   }
 }

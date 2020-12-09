@@ -1,0 +1,34 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "bail": true,
+  "collectCoverageFrom": [
+    "<rootDir>/lib/**/*.ts",
+    "<rootDir>/lib/**/*.ts"
+  ],
+  "modulePaths": [
+    "<rootDir>/lib"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 95,
+      "functions": 95,
+      "lines": 95,
+      "statements": 95
+    }
+  },
+  "globals": {
+    "ts-jest": {
+      "diagnostics": false
+    }
+  },
+  "reporters": [
+    "default",
+    ["jest-html-reporters", {
+      "publicPath" : "./public/progress/",
+      "filename": "api-report.html",
+      "pageTitle": "cloudinary-upload-api Report",
+      "expand": true
+    }]
+  ]
+}
