@@ -23,8 +23,9 @@ jobs:
       - name: Install dependencies
         run: | 
           yarn
-          yarn --cwd packages/url
-          yarn --cwd packages/utils
+          cd packages/url && yarn
+          cd ../utils && yarn
+          cd ../../
 
       - name: Test
         run: yarn test:unit-coverage
