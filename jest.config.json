@@ -31,7 +31,7 @@
     [
       "jest-html-reporters",
       {
-        "publicPath": "./docs/coverage/",
+        "publicPath": "./docs/test-report/",
         "filename": "api-report.html",
         "pageTitle": "cloudinary-apis Report",
         "expand": true

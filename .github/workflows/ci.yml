@@ -3,10 +3,10 @@ name: ci
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   ci:
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@master
 
       - name: Install dependencies
-        run: | 
+        run: |
           yarn
           yarn --cwd packages/url
           yarn --cwd packages/utils
