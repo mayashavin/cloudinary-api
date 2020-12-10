@@ -27,9 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn
-          yarn --cwd packages/url
-          yarn --cwd packages/utils
+          npm install
 
       - name: Test
         run: yarn test:unit
