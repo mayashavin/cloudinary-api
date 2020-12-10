@@ -1,4 +1,4 @@
-import { AudioCodec, Border, ColorSpace, Condition, CustomFunction, Effect, Flag, FPS, Gravity, Offset, Position, Radius, Resize, Rotation, Variable, VColorSpace, VFlag } from "../transformation"
+import { AudioCodec, Border, ColorSpace, Condition, CustomFunction, Effect, Flag, FPS, Gravity, Offset, Position, Radius, Resize, Rotation, Variable, VColorSpace, VEffect, VFlag } from "../transformation"
 
 export type TransformerBaseOptions = {
   resize?: Resize,
@@ -41,7 +41,7 @@ export interface TransformerVideoOption extends VideoSettings, AudioSettings, Tr
   chaining?: TransformerVideoOption[],
   delay?: number,
   flags?: VFlag,
-  effect?: VFlag
+  effect?: VEffect
 }
 
 export type VideoSettings = {
