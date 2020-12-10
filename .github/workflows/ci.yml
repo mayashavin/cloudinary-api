@@ -27,9 +27,8 @@ jobs:
 
       - name: Install dependencies
         run: | 
-          yarn
-          yarn --cwd packages/url
-          yarn --cwd packages/utils
+          npm install
+          lerna bootstrap
 
       - name: Test
         run: yarn test:unit
