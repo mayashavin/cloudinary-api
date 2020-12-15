@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "description": "Manage and optimize your Gridsome images with Cloudinary",
+  "description": "Shorter and lighter APIs for Cloudinary",
   "private": true,
   "workspaces": [
     "packages/*"
