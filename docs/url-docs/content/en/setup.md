@@ -44,3 +44,23 @@ And that's it 🎉!
 
 Now you can start [building optimized delivery urls](/usage/buildUrl) for your images and videos with Cloudinary.
 
+## TypeScript Support
+
+`cloudinary-build-url` supports TypeScript. To use the same types defined in the library, install `@cld-apis/types`.
+
+<code-group>
+  <code-block label="Yarn" active>
+
+  ```bash
+  yarn add -D @cld-apis/types
+  ```
+
+  </code-block>
+  <code-block label="NPM">
+
+  ```bash
+  npm i -D @cld-apis/types
+  ```
+
+  </code-block>
+</code-group>
