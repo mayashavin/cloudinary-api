@@ -7,6 +7,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
+  "sideEffects": false,
   "directories": {
     "lib": "lib",
     "test": "__tests__"

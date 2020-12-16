@@ -9,6 +9,7 @@
   "files": [
     "**/*.d.ts"
   ],
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mayashavin/cloudinary-api.git"

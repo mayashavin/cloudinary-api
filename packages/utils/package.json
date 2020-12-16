@@ -22,6 +22,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
