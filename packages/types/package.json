@@ -12,7 +12,8 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mayashavin/cloudinary-api.git"
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git",
+    "directory": "packages/types"
   },
   "scripts": {
     "bundlewatch": "bundlewatch --config bundlewatch.config.json",

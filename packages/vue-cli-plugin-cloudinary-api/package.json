@@ -1,0 +1,35 @@
+{
+  "name": "vue-cli-plugin-cloudinary-api",
+  "version": "0.1.1",
+  "description": "Cloudinary light APIs plugin for vue-cli (3.0+)",
+  "keywords": [
+    "vue",
+    "vue-cli",
+    "plugin",
+    "url",
+    "cloudinary",
+    "sdk",
+    "image",
+    "optimization",
+    "video",
+    "vue-cli-3",
+    "vue-cli-4",
+    "vue-cli cloudinary"
+  ],
+  "author": "Maya Shavin <maya@cloudinary.com>",
+  "homepage": "https://cloudinary-build-url.netlify.app",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git",
+    "directory": "packages/vue-cli-plugin-cloudinary-api"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.vue .",
+    "test": "jest"
+  },
+  "bugs": {
+    "url": "https://github.com/mayashavin/cloudinary-api/issues"
+  }
+}

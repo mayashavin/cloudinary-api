@@ -58,5 +58,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git",
+    "directory": "packages/url"
+  },
   "gitHead": "dcef68eee9274fe77f860b2f7e7165fde41f8bb6"
 }
