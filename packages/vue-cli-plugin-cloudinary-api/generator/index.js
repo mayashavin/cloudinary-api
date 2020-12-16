@@ -2,7 +2,7 @@
 module.exports = (api, opts) => {
   api.extendPackage({
     dependencies: {
-      "cloudinary-build-url": "latest",
+      "cloudinary-build-url": "^0.1.1",
     },
   });
 

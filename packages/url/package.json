@@ -37,7 +37,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@cld-apis/utils": "^0.1.0"
+    "@cld-apis/utils": "^0.1.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
