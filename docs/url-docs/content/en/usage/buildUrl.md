@@ -15,7 +15,7 @@ To generate delivery urls with transformations for assets using Cloudinary, you 
   * Path to the asset stored in Cloudinary, or the full Cloudinary asset URL.
 * `options`
   * Type: `CldOptions`
-  * Consists two fields: `cloud` and `transformation`. See [the options parameter](#the-options-parameter) for more details.
+  * Consists two fields: `cloud` and `transformations`. See [the options parameter](#the-options-parameter) for more details.
 
 Generate delivery URL for an asset with `publicId` and given `options`, including `options.cloud` extra configurations, and `options.transformations` - the transformations to apply.
 
@@ -44,7 +44,7 @@ const url = buildUrl('example', {
   * Path to the image stored in Cloudinary, or the full Cloudinary image URL.
 * `options`
   * Type: `CldOptions`
-  * Consists two fields: `cloud` and `transformation`. See [the options parameter](#the-options-parameter) for more details.
+  * Consists two fields: `cloud` and `transformations`. See [the options parameter](#the-options-parameter) for more details.
 
 Generate delivery URL for an image with `publicId` and given `options`, including `options.cloud` extra configurations, and `options.transformations` - the transformations to apply.
 
@@ -81,7 +81,7 @@ See [Fetch Remote example](/examples/advanced#display-a-remote-image-via-cloudin
   * Path to the video stored in Cloudinary, or the full Cloudinary video URL.
 * `options`
   * Type: `CldOptions`
-  * Consists two fields: `cloud` and `transformation`. See [the options parameter](#the-options-parameter) for more details.
+  * Consists two fields: `cloud` and `transformations`. See [the options parameter](#the-options-parameter) for more details.
 
 Generate delivery URL for a video with `publicId` and given `options`, including `options.cloud` extra configurations, and `options.transformations` - the transformations to apply.
 
@@ -138,7 +138,6 @@ The transformations to apply to the asset on delivery, such as format optimizati
       type: 'scale'
     },
     border: {
-      type: 'dotted',
       width: 1,
       color: 'red'
     }
@@ -146,4 +145,4 @@ The transformations to apply to the asset on delivery, such as format optimizati
 }
 ```
 
-See [Transformations](/usage/transformations)  section for more details on the accepted transformation fields.
+See [Transformations](/transformations/basic)  section for more details on the accepted transformation fields.

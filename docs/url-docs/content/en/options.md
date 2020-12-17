@@ -3,7 +3,7 @@ title: Options
 description: 'Configuration options for Cloudinary url builder'
 position: 3
 category: Guide
-version: 1
+version: 1.1
 ---
 
 To configure the builder globally, you can use `setConfig()` method:
@@ -148,7 +148,8 @@ Below are the configuration options to apply to assets specifically (images and 
 The storage and delivery type of asset in Cloudinary. 
 
 ```js
-import { setConfig, STORAGE_TYPES } from 'cloudinary-builder-url'
+import { setConfig } from 'cloudinary-builder-url'
+import { STORAGE_TYPES } from '@cld-apis/utils'
 
 setConfig({
   storageType: STORAGE_TYPES.UPLOAD //upload
@@ -170,7 +171,8 @@ setConfig({
 Type of the asset(s)
 
 ```js
-import { setConfig, RESOURCE_TYPES } from 'cloudinary-builder-url'
+import { setConfig } from 'cloudinary-builder-url'
+import { RESOURCE_TYPES } from '@cld-apis/utils'
 
 setConfig({
   storageType: RESOURCE_TYPES.IMAGE //image

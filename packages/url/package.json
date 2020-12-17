@@ -7,6 +7,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
+  "sideEffects": false,
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -36,7 +37,7 @@
     "typescript"
   ],
   "dependencies": {
-    "@cld-apis/utils": "^0.1.0"
+    "@cld-apis/utils": "^0.1.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.15",
@@ -56,6 +57,11 @@
   "homepage": "https://github.com/mayashavin/cloudinary-api/tree/main/packages/url#README",
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git",
+    "directory": "packages/url"
   },
   "gitHead": "dcef68eee9274fe77f860b2f7e7165fde41f8bb6"
 }

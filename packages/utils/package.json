@@ -1,13 +1,14 @@
 {
   "name": "@cld-apis/utils",
-  "version": "0.1.0",
-  "description": "Cloudinary constants",
+  "version": "0.1.1",
+  "description": "Cloudinary constants and helpers for transformations",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/constants#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mayashavin/cloudinary-api.git"
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git",
+    "directory": "packages/utils"
   },
   "bugs": {
     "url": "https://github.com/mayashavin/cloudinary-api/issues"
@@ -22,6 +23,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "scripts": {
     "build": "npm run clean && npm run compile",
     "clean": "rm -rf ./dist",
@@ -44,7 +46,6 @@
     "typescript"
   ],
   "devDependencies": {
-    "@cld-apis/types": "^0.1.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.10",
     "agadoo": "^2.0.0",

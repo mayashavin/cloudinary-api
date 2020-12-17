@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 export {
   AudioCodecTypes,
+  ArtisticFilters,
   ColorAdjustment,
   ColorChannel,
   ColorFilter,
@@ -14,6 +15,7 @@ export {
   Brightness,
   Flags,
   Gravity,
+  NamedColors,
   ROTATION_MODES,
   RESIZE_TYPES,
   RESOURCE_TYPES,
@@ -27,3 +29,5 @@ export {
 } from './constants'
 
 export { toSnakeCase } from './toSnakeCase'
+
+export { colorify } from './colorify'
