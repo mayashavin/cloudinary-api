@@ -11,6 +11,9 @@ features:
   - TypeScript supported
 ---
 
+<img src="/preview.png" class="light-img">
+<img src="/preview.png" class="dark-img">
+
 The lighter [Cloudinary](https://cloudinary.com/) URL builder for images and videos, written in TypeScript.
 
 ## What is Cloudinary?
