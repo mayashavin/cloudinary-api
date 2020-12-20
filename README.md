@@ -37,6 +37,20 @@ const src = buildUrl('example', {
 console.log(src)
 ```
 
+## Supporting packages
+
+### `@cld-apis/utils`
+
+Constants for transformations used in Cloudinary APIs, and other helper functionalities.
+
+### `@cld-apis/types`
+
+Defined types used in `cloudinary-build-url` for TypeScript
+
+## Vue-cli plugin - `vue-cli-plugin-cloudinary-api`
+
+Cloudinary API plugin for Vue-cli created projects
+
 Maintained by [Maya Shavin](https://github.com/mayashavin)
 
 <!-- Badges -->
