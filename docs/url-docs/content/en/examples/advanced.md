@@ -17,20 +17,24 @@ And display it as `200x200` in size, round and auto-cropping avatar:
 
 ```js
 import { setConfig, buildImageUrl } from 'cloudinary-build-url'
+import { STORAGE_TYPES, RESIZE_TYPES, Gravity } from '@cld-apis/utils'
 
 setConfig({
   cloudName: 'your-cloud-name',
 })
 
 const url = buildImageUrl('paste-the-copied-path', {
+  cloud: {
+    storageType: STORAGE_TYPES.FETCH
+  },
   transformations: {
     resize: {
-      type: 'fill',
+      type: RESIZE_TYPES.FILL,
       width: 200,
       height: 200,
     },
     radius: 'max',
-    gravity: 'auto:subject'
+    gravity: Gravity.Subject
   }
 })
 ```

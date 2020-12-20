@@ -19,7 +19,6 @@ For more detailed information on each transformation, see [Cloudinary Image tran
 
 - Type: `Border`
   - `width`: `string` | `number`
-  - `type`: `string`. Default: `solid`
   - `color`: `string`. Default: `black`
 
 Add border around the desired asset.
@@ -33,7 +32,6 @@ const url = buildImageUrl("example", {
   },
   transformations: {
     border: {
-      type: "solid",
       color: "red",
       width: 2,
     },

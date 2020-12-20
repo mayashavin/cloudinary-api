@@ -25,6 +25,7 @@ You can easily generate a version of your image as a `200x200` in size, round an
 
 ```js
 import { buildImageUrl } from 'cloudinary-build-url'
+import { RESIZE_TYPES, Gravity } from '@cld-apis/utils'
 
 const url = buildImageUrl('paste-the-copied-path', {
   cloud: {
@@ -32,12 +33,12 @@ const url = buildImageUrl('paste-the-copied-path', {
   },
   transformations: {
     resize: {
-      type: 'fill',
+      type: RESIZE_TYPES.FILL,
       width: 200,
       height: 200,
     },
     radius: 'max',
-    gravity: 'auto:subject'
+    gravity: Gravity.Subject
   }
 })
 ```
