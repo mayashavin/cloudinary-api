@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export {
   AudioCodecTypes,
   ColorAdjustment,
@@ -24,3 +25,5 @@ export {
   VideoEffects,
   STORAGE_TYPES
 } from './constants'
+
+export { toSnakeCase } from './toSnakeCase'
