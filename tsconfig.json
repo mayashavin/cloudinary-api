@@ -4,6 +4,7 @@
     "baseUrl": "./packages",
     "paths": {
       "cloudinary-build-url": ["url/lib"],
+      "vue-video-player": ["vue-video-player/lib"]
     }
   }
 }
