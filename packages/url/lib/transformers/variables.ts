@@ -1,6 +1,6 @@
 import { Formats, Prefix } from "../constants/variable";
 import { ValueAssignable } from '@cld-apis/utils'
-import { StringValue, Variable } from "@cld-apis/types";
+import type { StringValue, Variable } from "@cld-apis/types";
 import { toString } from "../utils";
 import { convert, hasArithmeticExpression } from "./expression";
 

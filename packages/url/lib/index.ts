@@ -1,5 +1,5 @@
 import { RESOURCE_TYPES } from '@cld-apis/utils'
-import { CldOptions, CloudConfig } from '@cld-apis/types'
+import type { CldOptions, CloudConfig } from '@cld-apis/types'
 import { url, extractPublicId } from './url'
 import { transform, toTransformationStr } from './transformers'
 

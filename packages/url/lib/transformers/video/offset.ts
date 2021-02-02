@@ -1,4 +1,4 @@
-import { Offset } from '@cld-apis/types'
+import type { Offset } from '@cld-apis/types'
 
 export const offset = (obj?: Offset) => {
   if (!obj) return ''
