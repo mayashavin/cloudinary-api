@@ -1,9 +1,9 @@
-export { CldOptions } from './options/CldOptions'
-export { TransformerOption, TransformerBaseOptions, TransformerVideoOption } from './options/TransformerOption'
-export { CloudConfig } from './cloud/CloudConfig'
-export { ResourceType } from './cloud/ResourceType'
-export { StorageType } from './cloud/StorageType'
-export { 
+export type { CldOptions } from './options/CldOptions'
+export type { TransformerOption, TransformerBaseOptions, TransformerVideoOption } from './options/TransformerOption'
+export type { CloudConfig } from './cloud/CloudConfig'
+export type { ResourceType } from './cloud/ResourceType'
+export type { StorageType } from './cloud/StorageType'
+export type { 
   Effect, 
   VEffect, 
   Variable, 
@@ -28,9 +28,26 @@ export {
   FPS,
   Transformation,
   FPSType,
-  CompassGravity
+  CompassGravity,
+  TextStyle
 } from './transformation'
 
-export {
+export type { Asset } from './asset/Asset'
+
+export type {
+  ResponseError, 
+  RenameOptions, 
+  ResourceOptions, 
+  ResponsiveBreakpointOption, 
+  UploadOptions, 
+  AccessControl, 
+  AccessControlType, 
+  AccessMode, 
+  AssetOptions, 
+  SingleDeleteOptions,
+  ManupulationOptions
+} from './options/api'
+
+export type {
   SocialCard, SocialImage, SocialText, TextArea 
 } from './options/TextOptions'
