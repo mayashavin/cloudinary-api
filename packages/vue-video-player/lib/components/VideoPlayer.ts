@@ -1,4 +1,4 @@
-import { ref, PropType, onMounted, onUnmounted, Ref, defineComponent, h, onBeforeUpdate, onUpdated } from 'vue'
+import { ref, PropType, onMounted, onUnmounted, Ref, defineComponent, h } from 'vue'
 import { Cloudinary, Configuration } from 'cloudinary-core';
 import 'cloudinary-video-player';
 import 'cloudinary-video-player/dist/cld-video-player.css';
