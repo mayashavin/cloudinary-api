@@ -51,5 +51,3 @@ export type {
 export type {
   SocialCard, SocialImage, SocialText, TextArea 
 } from './options/TextOptions'
-
-export { Asset } from './asset/Asset'
