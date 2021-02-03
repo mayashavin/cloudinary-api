@@ -1,5 +1,6 @@
 import { ResourceType } from '../cloud/ResourceType'
 import { StorageType } from '../cloud/StorageType'
+import { AccessControlType, AccessMode } from '../options/api'
 
 export interface Asset {
   publicId: string,
