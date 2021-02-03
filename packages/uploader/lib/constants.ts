@@ -1,1 +1,0 @@
-const UPLOAD_PREFIX = "https://api.cloudinary.com";

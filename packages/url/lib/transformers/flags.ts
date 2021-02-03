@@ -1,4 +1,4 @@
-import { Flag, VFlag } from "@cld-apis/types"
+import type { Flag, VFlag } from "@cld-apis/types"
 
 export const flags = (value?: Flag | VFlag ):string => {
   if (!value || value.length === 0) return ''
