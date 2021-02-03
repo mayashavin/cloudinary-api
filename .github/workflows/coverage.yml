@@ -1,0 +1,40 @@
+name: Build and publish test coverage
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [10, 12]
+
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: checkout
+        uses: actions/checkout@master
+
+      - name: Install dependencies
+        run: |
+          yarn
+          cd packages/url && yarn
+          cd ../utils && yarn
+          cd ../../
+
+      - name: Test
+        run: yarn test:unit-coverage
+
+      - name: Publish test coverage report
+        uses: EndBug/add-and-commit@v4
+        with:
+          add: docs
+          force: true
+          message: Add generated docs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

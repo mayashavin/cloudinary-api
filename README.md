@@ -15,6 +15,8 @@ Build URL for images and videos based on configurations.
 
 [💻&nbsp; Codebase](https://github.com/mayashavin/cloudinary-api/tree/main/packages/url)
 
+[✊&nbsp; Coding coverage status](https://mayashavin.github.io/cloudinary-api/)
+
 ```
 import { buildUrl } from 'cloudinary-build-url'
 
@@ -35,17 +37,52 @@ const src = buildUrl('example', {
 console.log(src)
 ```
 
+## Installation
+
+To use `cloudinary-build-url`:
+
+```bash
+npm i cloudinary-build-url
+
+#OR
+yarn add cloudinary-build-url
+```
+
+## Use with TypeScript
+
+cloudinary-build-url supports TypeScript. In order to start using the lib with TypeScript, please install `@cld-apis/types` as devDependencies.
+
+```bash
+npm i -D @cld-apis/types
+
+#OR
+
+yarn add -D @cld-apis/types
+```
+
+## Supporting packages
+
+### `@cld-apis/utils`
+
+Constants for transformations used in Cloudinary APIs, and other helper functionalities.
+
+### `@cld-apis/types`
+
+Defined types used in `cloudinary-build-url` for TypeScript
+
+## Vue-cli plugin - `vue-cli-plugin-cloudinary-api`
+
+Cloudinary API plugin for Vue-cli created projects
+
 Maintained by [Maya Shavin](https://github.com/mayashavin)
 
 <!-- Badges -->
+
 [npm-version-src]: https://img.shields.io/npm/v/cloudinary-build-url/latest.svg
 [npm-version-href]: https://npmjs.com/package/cloudinary-build-url
-
 [npm-downloads-src]: https://img.shields.io/npm/dt/cloudinary-build-url.svg
 [npm-downloads-href]: https://npmjs.com/package/cloudinary-build-url
-
 [codecov-src]: https://codecov.io/gh/mayashavin/cloudinary-api/branch/main/graph/badge.svg?token=S8V8GIDYPC
 [codecov-href]: https://codecov.io/gh/mayashavin/cloudinary-api
-
 [license-src]: https://img.shields.io/npm/l/cloudinary-build-url.svg
 [license-href]: https://npmjs.com/package/cloudinary-build-url

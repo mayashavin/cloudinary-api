@@ -8,7 +8,7 @@ version: 1
 
 In addition to the build URL API, the package exposes an instance of `Transformer`, which can be used to calculate transformations independently.
 
-## `Transformer.transform(options)`
+## `transform(options)`
 
 * `options`:
   * Type: `TransformerOption`
@@ -40,9 +40,9 @@ console.log(transArr)
 //['c_thumb','w_500', 'h_500', 'g_auto', ['e_grayscale']]
 ```
 
-See [Transformations](/usage/transformations) for more details on accepted properties for `options`.
+See [Transformations](/transformations/basic) for more details on accepted properties for `options`.
 
-## `Transformer.toString(transformations)`
+## `toString(transformations)`
 
 * `transformations`:
   * Type: `Transformation`

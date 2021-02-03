@@ -97,3 +97,27 @@ export const VideoEffects = {
   Deshake: 'deshake',
   Volume: 'volume'
 }
+
+export const ArtisticFilters = {
+  AlDente: 'al_dente',
+  Athena: 'athena',
+  Audrey: 'audrey',
+  Aurora: 'aurora',
+  Daguerre: 'daguerre',
+  Eucalyptus: 'eucalyptus', 
+  Fes: 'fes', 
+  Frost: 'frost', 
+  Hairspray: 'hairspray', 
+  Hokusai: 'hokusai',
+  Incognito: 'incognito',
+  Linen: 'linen',
+  Peacock: 'peacock',
+  Primavera: 'primavera',
+  quartz: 'quartz', 
+  RedRock: 'red_rock', 
+  Refresh: 'refresh', 
+  Sizzle: 'sizzle', 
+  Sonnet: 'sonnet', 
+  Ukulele: 'ukulele', 
+  Zorro: 'zorro'
+}

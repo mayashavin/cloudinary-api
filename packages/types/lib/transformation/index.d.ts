@@ -14,3 +14,4 @@ export { AudioCodec } from './AudioCodec'
 export { FPS, FPSType } from './Fps'
 export type Transformation = Array<string | string[]>
 export { Offset } from './Offset'
+export { TextStyle } from './Overlay'

@@ -1,6 +1,6 @@
 {
-  "name": "root",
-  "description": "Manage and optimize your Gridsome images with Cloudinary",
+  "name": "cloudinary-api",
+  "description": "Shorter and lighter APIs for Cloudinary",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -20,29 +20,37 @@
     "release": "lerna publish --conventional-commits",
     "pretest": "yarn build && jest --rootDir __tests__",
     "test": "lerna run test --stream",
-    "test:unit": "yarn test:url",
     "pretest:ci": "yarn pretest",
     "test:ci": "lerna run test:ci --stream",
     "prettier": "yarn prettier --write .",
     "changelog": "node scripts/changelog.js",
     "test:url": "npm --prefix packages/url run test:unit",
     "bundlewatch:url": "npm --prefix packages/url run bundlewatch",
-    "doc-dev:url": "npm --prefix docs/url-docs run dev"
+    "doc-dev:url": "npm --prefix docs/url-docs run dev",
+    "test:unit": "jest __tests__ --reporters default",
+    "test:unit-coverage": "jest __tests__ --coverage"
   },
   "author": "Maya Shavin <dpnminh@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mayashavin/cloudinary-api/issues"
   },
-  "homepage": "https://github.com/mayashavin/cloudinary-api#readme",
+  "homepage": "https://cloudinary-build-url.netlify.app/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "eslint": "^7.13.0",
     "jest": "^26.6.3",
     "lerna": "^3.22.1",
+    "@types/jest": "^26.0.15",
     "prettier": "^2.1.2",
     "typescript": "^4.0.5",
+    "jest-html-reporters": "^2.1.0",
+    "ts-jest": "^26.4.4",
     "husky": "^4.3.0"
   },
   "keywords": [
@@ -54,6 +62,7 @@
     "optimization",
     "api",
     "light",
-    "typescript"
+    "typescript",
+    "cloudinary-sdk"
   ]
 }

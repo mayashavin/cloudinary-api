@@ -1,6 +1,7 @@
 import { SEO_TYPES } from "./constants"
 import { RESOURCE_TYPES, STORAGE_TYPES } from '@cld-apis/utils'
-import { CloudConfig, TransformerOption, TransformerVideoOption, ResourceType, StorageType } from '@cld-apis/types'
+import type { CloudConfig, TransformerOption, TransformerVideoOption, ResourceType, StorageType } from '@cld-apis/types'
+import { toTransformationStr, transform } from './transformers'
 
 const SHARED_CDNS:string[] = ["cloudinary-a.akamaihd.net", "res.cloudinary.com"]
 
@@ -132,7 +133,7 @@ export const url = (publicId: string, cloud: CloudConfig = { cloudName: ''}, opt
   }
 
   //build the transformations
-  const { toTransformationStr, transform } = require('./transformers')
+  // const { toTransformationStr, transform } = require('./transformers')
 
   const trans:string = toTransformationStr(transform($options))
 

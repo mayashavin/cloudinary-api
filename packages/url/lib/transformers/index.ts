@@ -1,4 +1,4 @@
-import { Transformation } from '@cld-apis/types'
+import type { Transformation } from '@cld-apis/types'
 import { TRANSFORMERS } from '../constants'
 import { AcceptNumbericVars } from '../constants/arithmetic'
 import { condition } from './condition'
@@ -9,13 +9,15 @@ import { rawTransformation } from './rawTransformation'
 import { variables } from './variables'
 import { fps } from './video/fps'
 import { offset } from './video/offset'
+import { resize } from './resize'
+import { border } from './border'
+import { position } from './position'
 
 export const getResize = (options):string => {
   const hasResize = options.resize || options.width || options.height || options.aspectRatio
 
   if (!hasResize) return ''
 
-  const { resize } = require('./resize')
     
   return resize(options.resize || { width: options.width, height: options.height, type: options.crop, aspectRatio: options.aspectRatio })
 }
@@ -23,7 +25,6 @@ export const getResize = (options):string => {
 export const getBorder = (options):string => {
   if (!options.border) return ''
 
-  const { border } = require('./border')
 
   const borderModification = (typeof options.border === 'string') ? `bo_${options.border}` : border(options.border)
 
@@ -33,7 +34,6 @@ export const getBorder = (options):string => {
 export const getPosition = (options): string => {
   if (!options.x && !options.y && !options.position) return ''
 
-  const { position } = require('./position')
 
   return position(options.position || { x: options.x, y: options.y })
 }

@@ -1,0 +1,41 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "bail": true,
+  "collectCoverageFrom": [
+    "<rootDir>/packages/url/lib/**/*.ts",
+    "<rootDir>/packages/utils/lib/**/*.ts",
+    "!<rootDir>/packages/utils/lib/constants/*.ts"
+  ],
+  "modulePaths": ["<rootDir>/lib"],
+  "collectCoverage": true,
+  "coverageThreshold": {
+    "global": {
+      "branches": 95,
+      "functions": 95,
+      "lines": 95,
+      "statements": 95
+    }
+  },
+  "globals": {
+    "ts-jest": {
+      "diagnostics": false
+    }
+  },
+  "testMatch": [
+    "<rootDir>/packages/url/__tests__/*.(ts|tsx)",
+    "<rootDir>/packages/utils/__tests__/*.(ts|tsx)"
+  ],
+  "reporters": [
+    "default",
+    [
+      "jest-html-reporters",
+      {
+        "publicPath": "./docs/test-report/",
+        "filename": "api-report.html",
+        "pageTitle": "cloudinary-apis Report",
+        "expand": true
+      }
+    ]
+  ]
+}

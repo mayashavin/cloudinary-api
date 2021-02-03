@@ -26,6 +26,18 @@ or
 npm i cloudinary-build-url
 ```
 
+## Use with TypeScript
+
+In order to start using the lib with TypeScript, please install `@cld-apis/types` as devDependencies.
+
+```bash
+npm i -D @cld-apis/types
+
+#OR
+
+yarn add -D @cld-apis/types
+```
+
 ## Usage
 
 ### Build a delivery url for image
