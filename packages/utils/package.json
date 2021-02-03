@@ -1,6 +1,6 @@
 {
   "name": "@cld-apis/utils",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Cloudinary constants and helpers for transformations",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/constants#readme",

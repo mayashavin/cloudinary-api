@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/mayashavin/cloudinary-api/compare/cloudinary-build-url@0.2.0...cloudinary-build-url@0.2.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* repeat import Asset ([2f7a1d6](https://github.com/mayashavin/cloudinary-api/commit/2f7a1d64782b8086635b28b6423c15bae332be42))
+
+
+
+
+
 # [0.2.0](https://github.com/mayashavin/cloudinary-api/compare/cloudinary-build-url@0.0.3...cloudinary-build-url@0.2.0) (2021-02-03)
 
 
