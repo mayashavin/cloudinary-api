@@ -26,27 +26,9 @@ Add `cloudinary-build-url` dependency to your project:
   </code-block>
 </code-group>
 
-## Configure
-
-You can provide a *global* configuration for Cloudinary builder by using `setConfig()` method.
-
-```js
-import { setConfig } from 'cloudinary-build-url'
-
-setConfig({
-  cloudName: 'your-cloud-name',
-})
-```
-
-See [Options](/options) section for all available options to initialize Cloudinary builder. 
-
-And that's it 🎉!
-
-Now you can start [building optimized delivery urls](/usage/buildUrl) for your images and videos with Cloudinary.
-
 ## TypeScript Support
 
-`cloudinary-build-url` supports TypeScript. To use the same types defined in the library, install `@cld-apis/types`.
+`cloudinary-build-url` supports TypeScript. To use the same types defined in the library, install `@cld-apis/types` as your devDependencies.
 
 <code-group>
   <code-block label="Yarn" active>
@@ -64,3 +46,21 @@ Now you can start [building optimized delivery urls](/usage/buildUrl) for your i
 
   </code-block>
 </code-group>
+
+## Configure
+
+You can provide a *global* configuration for Cloudinary builder by using `setConfig()` method.
+
+```js
+import { setConfig } from 'cloudinary-build-url'
+
+setConfig({
+  cloudName: 'your-cloud-name',
+})
+```
+
+See [Options](/options) section for all available options to initialize Cloudinary builder. 
+
+And that's it 🎉!
+
+Now you can start [building optimized delivery urls](/usage/buildUrl) for your images and videos with Cloudinary.

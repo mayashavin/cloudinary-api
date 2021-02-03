@@ -236,7 +236,7 @@ const url = buildImageUrl("example", {
     cloudName: "demo",
   },
   transformations: {
-    opacity: 30,
+    quality: 10,
   },
 });
 ```
