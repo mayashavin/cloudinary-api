@@ -3,6 +3,7 @@ title: Setup
 description: 'How to set up the builder'
 position: 2
 category: Guide
+version: 1
 ---
 
 ## Installation

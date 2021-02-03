@@ -37,6 +37,17 @@ const src = buildUrl('example', {
 console.log(src)
 ```
 
+## Installation
+
+To use `cloudinary-build-url`:
+
+```bash
+npm i cloudinary-build-url
+
+#OR
+yarn add cloudinary-build-url
+```
+
 ## Use with TypeScript
 
 cloudinary-build-url supports TypeScript. In order to start using the lib with TypeScript, please install `@cld-apis/types` as devDependencies.
