@@ -14,7 +14,7 @@ export const extractPublicId = (link: string):string => {
   const parts = CLOUDINARY_REGEX.exec(link)
 
   return parts && parts.length > 2 ? parts[parts.length - 2] : link
-} 
+}
 
 export const getSignature = (signature?: string) => {
   if (!signature) return ''
@@ -42,13 +42,13 @@ export const getSubDomain = (publicId: string, { cdnSubdomain = false, cname } :
   return cdnSubdomain ? `a${publicId}.` : ''
 }
 
-export const getPrefix = (publicId: string, { 
-  cloudName, 
-  privateCdn = false, 
-  cdnSubdomain = false, 
-  secureDistribution, 
-  cname, 
-  secure = true, 
+export const getPrefix = (publicId: string, {
+  cloudName,
+  privateCdn = false,
+  cdnSubdomain = false,
+  secureDistribution,
+  cname,
+  secure = true,
 }: CloudConfig):string => {
   const hasSecureDistribution = secure && secureDistribution && !SHARED_CDNS.includes(secureDistribution)
   const protocol = `http${secure ? 's' : ''}://`
@@ -95,11 +95,10 @@ export const getResourceType = ({
 
 const isUrl = (str) => str && !!str.match(/^https?:\//)
 
-export const getPathToAsset = (publicId: string, { urlSuffix = '', format = '' } : { urlSuffix?: string, format?: string }):string => {
+export const getPathToAsset = (publicId: string, { urlSuffix = '' } : { urlSuffix?: string }):string => {
   if (isUrl(publicId)) return encodePublicId(publicId)
 
-  const publicIdWithFormat = publicId.replace(/\.[^/.]+$/, format || '')
-  const path = [publicIdWithFormat, urlSuffix].filter(Boolean).join('/')
+  const path = [publicId, urlSuffix].filter(Boolean).join('/')
 
   return encodePublicId(path)
 }
@@ -111,7 +110,7 @@ export const url = (publicId: string, cloud: CloudConfig = { cloudName: ''}, opt
 
   //If publicId is cloudinary url, strip to get the publicId and version.
   const _publicId = isUrl(publicId) ? extractPublicId(publicId) : publicId
-  
+
   //1. Get version
   const version:string = getVersion(_publicId, cloud)
   //2. Get Prefix
@@ -121,7 +120,7 @@ export const url = (publicId: string, cloud: CloudConfig = { cloudName: ''}, opt
   //4. Get Resource type
   const typePath:string = getResourceType(cloud)
   //5. Get path
-  const pathToAsset:string = getPathToAsset(_publicId, { format: options.format, urlSuffix: cloud.urlSuffix })
+  const pathToAsset:string = getPathToAsset(_publicId, { urlSuffix: cloud.urlSuffix })
   //6. Encode everything with %20 for whitespace
 
   const format = options.fetchFormat || options.format || 'auto'

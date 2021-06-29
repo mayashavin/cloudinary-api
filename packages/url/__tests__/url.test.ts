@@ -80,7 +80,7 @@ describe('Url', () => {
         forceVersion: true,
       })).toEqual('')
     });
-    
+
     it('should not force a version when it already contains a version ', () => {
       expect(getVersion('v3/a', {
         forceVersion: true,
@@ -95,10 +95,6 @@ describe('Url', () => {
 
     it('should return public id without extension and suffix', () => {
       expect(getPathToAsset('example', {})).toBe('example')
-    })
-
-    it('should return publicid path with new extension', () => {
-      expect(getPathToAsset('example.gif', { format: '.jpg' })).toBe('example.jpg')
     })
 
     it('should return publicId with suffix', () => {
@@ -130,7 +126,7 @@ describe('Url', () => {
       expect(url('example', {
         cloudName: 'demo',
         forceVersion: true
-      }, {        
+      }, {
         resize: {
           width: 500,
           type: 'scale',
