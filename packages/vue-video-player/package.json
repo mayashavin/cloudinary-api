@@ -1,0 +1,54 @@
+{
+  "name": "@cld-apis/vue-video-player",
+  "version": "1.0.0",
+  "description": "Cloudinary Video player for Vue",
+  "author": "Maya Shavin <maya@cloudinary.com>",
+  "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/vue-components#readme",
+  "license": "MIT",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm-bundler.js",
+  "browser": "dist/index.browser.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayashavin/cloudinary-api.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf ./dist",
+    "compile": "yarn rollup -c rollup.config.js",
+    "test:unit": "jest __tests__ --reporters default",
+    "tsc": "tsc -p tsconfig.build.json && tsc -p tsconfig.json",
+    "bundlewatch": "bundlewatch --config bundlewatch.config.json",
+    "prepublishOnly": "yarn build && yarn agadoo && yarn bundlewatch",
+    "agadoo": "agadoo dist/",
+    "dev": "cd demo && yarn dev",
+    "build:example": "cd demo && yarn build"
+  },
+  "bugs": {
+    "url": "https://github.com/mayashavin/cloudinary-api/issues"
+  },
+  "dependencies": {
+    "cloudinary-core": "^2.11.3",
+    "cloudinary-video-player": "^1.5.1"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-typescript": "^4.5.11",
+    "@vue/cli-service": "^4.5.11",
+    "@vue/compiler-sfc": "^3.0.5",
+    "rollup": "^2.38.0",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^4.1.3"
+  }
+}
