@@ -4,13 +4,13 @@ export const RESIZE_TYPES = {
   CROP: 'crop',
   FILL: 'fill',
   SCALE: 'scale',
-  MIN_PAD: 'minimumPad',
+  MIN_PAD: 'mpad',
   FIT: 'fit',
   PAD: 'pad',
-  LIMIT_FIT: 'limitFit',
+  LIMIT_FIT: 'limit',
   THUMBNAIL: 'thumb',
-  LIMIT_FILL: 'limitFill',
-  MIN_FIT: 'minimumFit',
-  LIMIT_PAD: 'limitPad',
-  FILL_PAD: 'fillPad'
+  LIMIT_FILL: 'lfill',
+  MIN_FIT: 'mfit',
+  LIMIT_PAD: 'lpad',
+  FILL_PAD: 'fill_pad'
 } as const
