@@ -25,7 +25,7 @@ You can easily extract the target public Id using the following method:
   * Cloudinary asset URL.
 
 ```js
-import { extractPublicId } from 'cloudinary-builder-url'
+import { extractPublicId } from 'cloudinary-build-url'
 
 const publicId = extractPublicId(
     "http://res.cloudinary.com/demo/image/upload/v1312461204/sample.jpg"
