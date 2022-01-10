@@ -61,5 +61,6 @@
   },
   "dependencies": {
     "lodash.snakecase": "^4.1.1"
-  }
+  },
+  "gitHead": "f971cf36603f8a9fa1b3854094b2fd735f65f595"
 }
