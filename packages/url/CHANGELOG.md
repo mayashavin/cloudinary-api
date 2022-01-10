@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/mayashavin/cloudinary-api/compare/cloudinary-build-url@0.2.1...cloudinary-build-url@0.2.2) (2022-01-10)
+
+
+### Bug Fixes
+
+* remove format extension for public-id ([f41d461](https://github.com/mayashavin/cloudinary-api/commit/f41d461e286a9d3230c0343ebe83828eb71319e8))
+
+
+
+
+
 ## [0.2.1](https://github.com/mayashavin/cloudinary-api/compare/cloudinary-build-url@0.2.0...cloudinary-build-url@0.2.1) (2021-02-03)
 
 
