@@ -106,4 +106,7 @@ dist
 # Local Netlify folder
 .netlify
 
+# LocalHistory VSCode plugin
+.history
+
 package-lock.json
