@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/mayashavin/cloudinary-api/compare/cloudinary-build-url@0.2.2...cloudinary-build-url@0.2.3) (2022-01-18)
+
+**Note:** Version bump only for package cloudinary-build-url
+
+
+
+
+
 ## [0.2.2](https://github.com/mayashavin/cloudinary-api/compare/cloudinary-build-url@0.2.1...cloudinary-build-url@0.2.2) (2022-01-10)
 
 

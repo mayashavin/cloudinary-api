@@ -1,6 +1,6 @@
 {
   "name": "cloudinary-build-url",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Lighter Url generator for Cloudinary",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "license": "MIT",
@@ -38,10 +38,10 @@
     "typescript"
   ],
   "dependencies": {
-    "@cld-apis/utils": "^0.1.4"
+    "@cld-apis/utils": "^0.1.5"
   },
   "devDependencies": {
-    "@cld-apis/types": "^0.1.4",
+    "@cld-apis/types": "^0.1.5",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.7",
     "agadoo": "^2.0.0",
