@@ -3,7 +3,8 @@ export const toSnakeCase = (options: Object):any => {
   if (!options) return {}
 
   const formatted = {} 
-  const snakeCase = require('lodash.snakecase')
+  
+  const { snakeCase } = require("snake-case");
 
   for (let key in options) {
     const value = options[key]
@@ -11,6 +12,6 @@ export const toSnakeCase = (options: Object):any => {
 
     formatted[newKey] = value
   }
-
+ 
   return formatted
 }
