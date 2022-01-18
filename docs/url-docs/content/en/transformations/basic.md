@@ -298,11 +298,11 @@ const url = buildImageUrl("example", {
   transformations: {
     condition: {
       if: {
-        expression: {
+        expression: [{
           characteristic: "width",
           operator: "greaterThan",
           value: 300
-        },
+        }],
         transformations: [{
           effect: {
             name: "e_oil_paint",
