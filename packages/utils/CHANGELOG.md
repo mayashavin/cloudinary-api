@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/mayashavin/cloudinary-api/compare/@cld-apis/utils@0.1.5...@cld-apis/utils@0.2.0) (2022-01-18)
+
+
+### Features
+
+* replaced lodash.snakecase with snake-case [#24](https://github.com/mayashavin/cloudinary-api/issues/24) ([5af2b05](https://github.com/mayashavin/cloudinary-api/commit/5af2b05e5af300c9b26b7f8e93c984d5735bcb7a))
+
+
+
+
+
 ## [0.1.5](https://github.com/mayashavin/cloudinary-api/compare/@cld-apis/utils@0.1.4...@cld-apis/utils@0.1.5) (2022-01-18)
 
 **Note:** Version bump only for package @cld-apis/utils

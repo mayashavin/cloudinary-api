@@ -1,6 +1,6 @@
 {
   "name": "@cld-apis/utils",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "description": "Cloudinary constants and helpers for transformations",
   "author": "Maya Shavin <maya@cloudinary.com>",
   "homepage": "https://github.com/mayashavin/cloudinary-api/tree/master/packages/constants#readme",
@@ -59,7 +59,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "dependencies": {    
+  "dependencies": {
     "snake-case": "^3.0.4"
   },
   "gitHead": "f971cf36603f8a9fa1b3854094b2fd735f65f595"
