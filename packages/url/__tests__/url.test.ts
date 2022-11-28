@@ -209,6 +209,10 @@ describe('Url', () => {
     it('should return as is', () => {
       expect(extractPublicId('example')).toEqual('example')
     })
+
+    it('should allow multiple dots in the filename before the extension', () => {
+      expect(extractPublicId('https://res.cloudinary.com/xyz/image/upload/v111111111/Folder/Name.With.Multiple.Dots.png')).toBe('Folder/Name.With.Multiple.Dots')
+    })
   })
 
   describe('getSubDomain', () => {

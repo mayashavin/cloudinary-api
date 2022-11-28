@@ -6,14 +6,19 @@ import { toTransformationStr, transform } from './transformers'
 const SHARED_CDNS:string[] = ["cloudinary-a.akamaihd.net", "res.cloudinary.com"]
 
 //eslint-disable-next-line
-const CLOUDINARY_REGEX = /^.+\.cloudinary\.com\/(?:[^\/]+\/)(?:(image|video|raw)\/)?(?:(upload|fetch|private|authenticated|sprite|facebook|twitter|youtube|vimeo)\/)?(?:(?:[^_/]+_[^,/]+,?)*\/)?(?:v(\d+|\w{1,2})\/)?([^\.^\s]+)(?:\.(.+))?$/
+const CLOUDINARY_REGEX = /^.+\.cloudinary\.com\/(?:[^\/]+\/)(?:(image|video|raw)\/)?(?:(upload|fetch|private|authenticated|sprite|facebook|twitter|youtube|vimeo)\/)?(?:(?:[^_/]+_[^,/]+,?)*\/)?(?:v(\d+|\w{1,2})\/)?(.+)$/
 
 export const extractPublicId = (link: string):string => {
   if (!link) return ''
 
   const parts = CLOUDINARY_REGEX.exec(link)
 
-  return parts && parts.length > 2 ? parts[parts.length - 2] : link
+  if (!parts) {
+    return link
+  }
+
+  // Strip extension if present
+  return parts[parts.length - 1].replace(/\.[^/.]+$/, "")
 }
 
 export const getSignature = (signature?: string) => {
