@@ -2,7 +2,7 @@ name: Build and publish test coverage
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     runs-on: ${{ matrix.os }}
