@@ -21,7 +21,9 @@
     "agadoo": "agadoo dist/"
   },
   "dependencies": {
-    "@cld-apis/utils": "^0.2.0",
+    "@cld-apis/utils": "^0.2.0"
+  },
+  "devDependencies": {
     "@types/node": "^14.14.10",
     "agadoo": "^2.0.0",
     "bundlewatch": "^0.3.1",
