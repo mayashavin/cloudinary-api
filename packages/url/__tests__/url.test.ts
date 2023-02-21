@@ -210,6 +210,10 @@ describe('Url', () => {
       expect(extractPublicId('example')).toEqual('example')
     })
 
+    it('should correctly handle filenames with no extension', () => {
+      expect(extractPublicId('https://res.cloudinary.com/xyz/image/upload/v111111111/Folder/noextension')).toBe('Folder/noextension')
+    })
+
     it('should allow multiple dots in the filename before the extension', () => {
       expect(extractPublicId('https://res.cloudinary.com/xyz/image/upload/v111111111/Folder/Name.With.Multiple.Dots.png')).toBe('Folder/Name.With.Multiple.Dots')
     })
